@@ -6,7 +6,9 @@
 package model;
 
 import base.Model;
+import java.time.Instant;
 import java.util.Calendar;
+import org.json.simple.JSONObject;
 
 /**
  * A class that represents a note.
@@ -17,7 +19,7 @@ public class Note implements Model {
     
     private String title;
     private String body;
-    private Calendar deadline;
+    private Instant deadline;
     
     public Note(){
         title = "";
@@ -58,21 +60,28 @@ public class Note implements Model {
 
     /**
      * 
-     * @see base.Model#toJSON()
+     * @see base.Model#toJSON() 
      */
     @Override
-    public String toJSON() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        
+        json.put("title", title);
+        json.put("body", body);
+        json.put("deadline", deadline.toString());
+        
+        return json;
     }
 
     /**
      * 
-     * @see base.Model#fromJSON(java.lang.String) 
+     * @see base.Model#fromJSON(org.json.simple.JSONObject)
      */
     @Override
-    public void fromJSON(String json) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void fromJSON(JSONObject json) {
+        title = (String) json.get("title");
+        body = (String) json.get("body");
+        deadline = Instant.parse((String) json.get("deadline"));
     }
-    
     
 }

@@ -5,21 +5,24 @@
  */
 package base;
 
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author tan
  */
 public interface Model {
-    /**
-     * 
-     * @return a JSON string format of the model
-     */
-    public String toJSON();
     
     /**
-     * Parses a JSON string into a model
      * 
-     * @param json the JSON string to parse
+     * @return a JSONObject format of the model.
      */
-    public void fromJSON(String json);
+    public JSONObject toJSON();
+    
+    /**
+     * Parses a JSONObject into a model
+     * 
+     * @param json the JSONObject to convert to model
+     */
+    public void fromJSON(JSONObject json);
 }

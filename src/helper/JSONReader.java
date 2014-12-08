@@ -5,7 +5,6 @@
  */
 package helper;
 
-import base.JSONObject;
 import base.Model;
 import factory.ModelFactory;
 import java.util.List;
@@ -15,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import model.Note;
+import org.json.simple.JSONObject;
 
 /**
  * A file reader class with static methods
