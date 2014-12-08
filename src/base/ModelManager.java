@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package helper;
+package base;
 
 /**
  *
  * @author tan
  */
-public class Writer {
+public abstract class ModelManager {
     
 }
