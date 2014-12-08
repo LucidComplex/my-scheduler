@@ -13,4 +13,11 @@ import base.ModelManager;
  */
 public class NoteManager extends ModelManager {
     
+    public NoteManager(String filepath){
+        saveFile = filepath;
+    }
+    
+    public void sortByDeadline(){
+        
+    }
 }
