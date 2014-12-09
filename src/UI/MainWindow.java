@@ -113,6 +113,7 @@ public class MainWindow extends javax.swing.JFrame {
         MainTitle.setText("My Scheduler Pro");
 
         mainTabbedPane.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        mainTabbedPane.setName(""); // NOI18N
 
         heyTile.setBackground(new java.awt.Color(255, 0, 102));
         heyTile.setForeground(new java.awt.Color(204, 0, 153));
