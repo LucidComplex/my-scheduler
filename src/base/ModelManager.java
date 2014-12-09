@@ -8,7 +8,10 @@ package base;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import json.JSONReader;
 import json.JSONWriter;
+import model.Note;
+import org.json.simple.parser.ParseException;
 
 /**
  * An abstract manager class, holds Models.
@@ -53,6 +56,19 @@ public abstract class ModelManager {
     }
     
     /**
+     * Load the Models from a JSON formatted file.
+     * 
+     * @throws IOException
+     * @throws ParseException
+     * @throws InstantiationException
+     * @throws IllegalAccessException 
+     */
+    public void loadModels() throws IOException, ParseException, InstantiationException, IllegalAccessException{
+        JSONReader.setFile(new File(saveFile));
+        modelList = JSONReader.getModelList(Note.class);
+    }
+    
+    /**
      * Checks if Model m is managed by this manager.
      * @param m the Model to check the list against.
      * @return true if m is managed, false otherwise.
@@ -61,6 +77,10 @@ public abstract class ModelManager {
      */
     public boolean manages(Model m){
         return modelList.contains(m);
+    }
+    
+    public Model getModel(int index){
+        return modelList.get(index);
     }
     
 }

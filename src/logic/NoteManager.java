@@ -7,6 +7,7 @@ package logic;
 
 import base.ModelManager;
 import factory.ModelFactory;
+import java.util.LinkedList;
 import java.util.Map;
 import model.Note;
 
@@ -18,6 +19,7 @@ public class NoteManager extends ModelManager {
     
     public NoteManager(String filepath){
         saveFile = filepath;
+        modelList = new LinkedList<>();
     }
     
     /**
