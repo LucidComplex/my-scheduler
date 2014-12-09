@@ -7,7 +7,7 @@ package model;
 
 import base.Model;
 import java.time.Instant;
-import java.util.Calendar;
+import java.util.Map;
 import org.json.simple.JSONObject;
 
 /**
@@ -24,6 +24,12 @@ public class Note implements Model {
     public Note(){
         title = "";
         body = "";
+    }
+    
+    public Note(Map<String, String> keys){
+        title = keys.get("title");
+        body = keys.get("body");
+        deadline = Instant.parse(keys.get("deadline"));
     }
     
     /**

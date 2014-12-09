@@ -5,6 +5,7 @@
  */
 package factory;
 
+import java.util.Map;
 import model.Note;
 
 /**
@@ -20,5 +21,14 @@ public class ModelFactory {
      */
     public static Note createNote(){
         return new Note();
+    }
+    
+    /**
+     * 
+     * @param args a Map that holds "title", "body", "deadline"
+     * @return a new Note with the details inside the Map.
+     */
+    public static Note createNote(Map args){
+        return new Note(args);
     }
 }

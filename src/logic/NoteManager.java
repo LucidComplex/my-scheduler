@@ -6,6 +6,9 @@
 package logic;
 
 import base.ModelManager;
+import factory.ModelFactory;
+import java.util.Map;
+import model.Note;
 
 /**
  *
@@ -17,7 +20,27 @@ public class NoteManager extends ModelManager {
         saveFile = filepath;
     }
     
-    public void sortByDeadline(){
-        
+    /**
+     * Sorts notes by deadline.
+     * 
+     * Closest deadline first.
+     * 
+     */
+    public void sortByDeadline(){ 
+        throw new UnsupportedOperationException(
+                "Implement " + this.getClass().getName() + "#sortByDeadline()."
+        );
+    }
+    
+    /**
+     * Creates and adds a note from a map.
+     * 
+     * @param args a Map containing the fields of a note.
+     * 
+     * @see factory.ModelFactory#createNote(java.util.Map) 
+     */
+    public void createNote(Map args){
+        Note note = ModelFactory.createNote(args);
+        super.addModel(note);
     }
 }

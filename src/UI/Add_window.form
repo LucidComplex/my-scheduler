@@ -335,11 +335,6 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel10">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\MarkLester\Downloads\icons\save2.png"/>
-        </Property>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
