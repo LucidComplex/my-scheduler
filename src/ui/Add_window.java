@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package ui;
 
 /**
  *
@@ -124,8 +124,6 @@ public class Add_window extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\MarkLester\\Downloads\\icons\\save2.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

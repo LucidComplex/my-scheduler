@@ -24,7 +24,8 @@ public class JSONWriter {
     }
     
     public static void writeModelList(List<Model> modelList) throws IOException{
-        for(Model m : modelList)
-            file.write(m.toJSON().toJSONString());
+        for(Model m : modelList){
+            file.write(m.toJSON().toJSONString() + "\n");
+        }
     }
 }

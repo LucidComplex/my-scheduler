@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package ui;
+
+import javax.swing.JFrame;
 
 /**
  *
@@ -111,8 +113,6 @@ public class MainWindow extends javax.swing.JFrame {
         MainTitle.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         MainTitle.setForeground(new java.awt.Color(0, 153, 153));
         MainTitle.setText("My Scheduler Pro");
-
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\MarkLester\\Downloads\\icons\\check6.png")); // NOI18N
 
         jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -580,7 +580,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel20.setBackground(new java.awt.Color(0, 102, 102));
         jLabel20.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
         jLabel20.setText("Study CMSC 57");
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -604,7 +603,6 @@ public class MainWindow extends javax.swing.JFrame {
         jTextArea1.setFocusable(false);
         jScrollPane2.setViewportView(jTextArea1);
 
-        jLabel24.setIcon(new javax.swing.ImageIcon("C:\\Users\\MarkLester\\Downloads\\icons\\delete.png")); // NOI18N
         jLabel24.setText("  DELETE");
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -616,7 +614,6 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel31.setText("No");
 
-        jLabel33.setIcon(new javax.swing.ImageIcon("C:\\Users\\MarkLester\\Downloads\\icons\\check.png")); // NOI18N
         jLabel33.setText("ACCOMPLISH");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -703,7 +700,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel34.setBackground(new java.awt.Color(0, 102, 102));
         jLabel34.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(51, 51, 51));
         jLabel34.setText("Make SocSci 2 Reaction Paper");
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -727,7 +723,6 @@ public class MainWindow extends javax.swing.JFrame {
         jTextArea2.setFocusable(false);
         jScrollPane4.setViewportView(jTextArea2);
 
-        jLabel40.setIcon(new javax.swing.ImageIcon("C:\\Users\\MarkLester\\Downloads\\icons\\delete.png")); // NOI18N
         jLabel40.setText("  DELETE");
 
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -739,7 +734,6 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel43.setText("No");
 
-        jLabel45.setIcon(new javax.swing.ImageIcon("C:\\Users\\MarkLester\\Downloads\\icons\\check.png")); // NOI18N
         jLabel45.setText("ACCOMPLISH");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -835,7 +829,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("  all tasks    ", jPanel2);
 
-        jLabel44.setIcon(new javax.swing.ImageIcon("C:\\Users\\MarkLester\\Downloads\\icons\\plus3.png")); // NOI18N
         jLabel44.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel44.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -844,10 +837,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Lesterrific17");
-
-        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\MarkLester\\Downloads\\icons\\logout_button.png")); // NOI18N
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel32.setText("No");
@@ -890,14 +880,12 @@ public class MainWindow extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel22)
-                            .addComponent(jLabel44))
-                        .addGap(3, 3, 3)))
+                            .addComponent(jLabel44))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -1048,6 +1036,5 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel upcomingTasksLabel;
     private javax.swing.JLabel upcomingTasksLabel1;
     // End of variables declaration//GEN-END:variables
-    private Add_window add_window;
-
+    private JFrame add_window;
 }
