@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logic;
+package manager;
 
 import base.ModelManager;
 import factory.ModelFactory;
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Map;
 import model.Note;
+import persistence.JSONReader;
+import persistence.JSONWriter;
 
 /**
  *
@@ -17,8 +21,15 @@ import model.Note;
  */
 public class NoteManager extends ModelManager {
     
-    public NoteManager(String filepath){
+    public NoteManager(String filepath) throws IOException{
+        this();
         saveFile = filepath;
+        file = new File(filepath);
+        JSONReader.setFile(file);
+        JSONWriter.setFile(file);
+    }
+    
+    public NoteManager(){
         modelList = new LinkedList<>();
     }
     

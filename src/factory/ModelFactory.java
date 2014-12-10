@@ -25,7 +25,7 @@ public class ModelFactory {
     
     /**
      * 
-     * @param args a Map that holds "title", "body", "deadline"
+     * @param args a Map that holds "title", "body", "deadline", "begin"
      * @return a new Note with the details inside the Map.
      */
     public static Note createNote(Map args){

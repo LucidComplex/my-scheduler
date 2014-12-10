@@ -8,8 +8,8 @@ package base;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import json.JSONReader;
-import json.JSONWriter;
+import persistence.JSONReader;
+import persistence.JSONWriter;
 import model.Note;
 import org.json.simple.parser.ParseException;
 
@@ -21,6 +21,7 @@ import org.json.simple.parser.ParseException;
 public abstract class ModelManager {
     protected List<Model> modelList;
     protected String saveFile;
+    protected File file;
     
     /**
      * 
@@ -51,7 +52,6 @@ public abstract class ModelManager {
      * @throws IOException 
      */
     public void saveModels() throws IOException{
-        JSONWriter.setFile(new File(saveFile));
         JSONWriter.writeModelList(modelList);
     }
     
@@ -64,7 +64,6 @@ public abstract class ModelManager {
      * @throws IllegalAccessException 
      */
     public void loadModels() throws IOException, ParseException, InstantiationException, IllegalAccessException{
-        JSONReader.setFile(new File(saveFile));
         modelList = JSONReader.getModelList(Note.class);
     }
     

@@ -2,7 +2,7 @@
 import factory.ModelFactory;
 import java.io.IOException;
 import java.time.Instant;
-import logic.NoteManager;
+import manager.NoteManager;
 import model.Note;
 import org.json.simple.parser.ParseException;
 

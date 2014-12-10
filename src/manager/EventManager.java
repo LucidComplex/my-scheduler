@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logic;
+package manager;
 
 import base.Command;
 import java.util.HashMap;
@@ -26,15 +26,19 @@ public abstract class EventManager {
     public static void execute(Class aClass) throws CommandNotFoundException{
         Command command = commands.get(aClass);
         if(command==null)
-            throw new CommandNotFoundException("This manager does not contain the command.");
+            throw new CommandNotFoundException(
+                    "This manager does not contain the command."
+            );
         else
             command.execute();
     }
 }
 
-
 class CommandNotFoundException extends Exception {
+    
     public CommandNotFoundException(String msg){
-        Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, msg, this);
+        Logger.getLogger(EventManager.class.getName())
+                .log(Level.SEVERE, msg, this);
     }
+    
 }
