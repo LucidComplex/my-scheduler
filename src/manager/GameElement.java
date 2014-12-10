@@ -46,11 +46,26 @@ public class GameElement {
         updateLevel();
     }
     
+    /**
+     * updates the level based on the experience.
+     */
     private void updateLevel(){
-        if(experience/level>level)
-            ;
+        level = 1 + experience/100;
     }
     
+    /**
+     * increases streak by 1
+     */
+    public void increaseStreak(){
+        streak++;
+    }
+    
+    /**
+     * breaks the streak
+     */
+    public void breakStreak(){
+        streak = 0;
+    }
 
 //<editor-fold defaultstate="collapsed" desc="Accessors">
     /**
