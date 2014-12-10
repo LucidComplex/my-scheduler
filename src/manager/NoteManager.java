@@ -56,4 +56,10 @@ public class NoteManager extends ModelManager {
         Note note = ModelFactory.createNote(args);
         super.addModel(note);
     }
+    
+    public void searchNoteByTitle(String title){
+        throw new UnsupportedOperationException(
+                "Implement " + this.getClass().getName() + "#searchNoteByTitle(java.util.String)."
+        );
+    }
 }
