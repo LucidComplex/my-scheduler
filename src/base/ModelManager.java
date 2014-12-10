@@ -19,30 +19,30 @@ import org.json.simple.parser.ParseException;
  * @author tan
  */
 public abstract class ModelManager {
-    protected List<Model> modelList;
+    protected List<JSONModel> modelList;
     protected String saveFile;
     protected File file;
     
     /**
      * 
-     * @param model adds a Model to the manager
+     * @param model adds a JSONModel to the manager
      * 
      * @see List#add(java.lang.Object) 
      */
-    public void addModel(Model model){
+    public void addModel(JSONModel model){
         modelList.add(model); // can be improved, implement a list/pq?
     }
     
     /**
      * 
-     * @param model the Model to be unmanaged
+     * @param model the JSONModel to be unmanaged
      * @return true when the model exists
      * in the list and was removed, false
      * otherwise.
      * 
      * @see List#remove(java.lang.Object) 
      */
-    public boolean removeModel(Model model){
+    public boolean removeModel(JSONModel model){
         return modelList.remove(model);
     }
     
@@ -68,17 +68,17 @@ public abstract class ModelManager {
     }
     
     /**
-     * Checks if Model m is managed by this manager.
-     * @param m the Model to check the list against.
+     * Checks if JSONModel m is managed by this manager.
+     * @param m the JSONModel to check the list against.
      * @return true if m is managed, false otherwise.
      * 
      * @see List#contains(java.lang.Object) 
      */
-    public boolean manages(Model m){
+    public boolean manages(JSONModel m){
         return modelList.contains(m);
     }
     
-    public Model getModel(int index){
+    public JSONModel getModel(int index){
         return modelList.get(index);
     }
     

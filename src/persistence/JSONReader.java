@@ -5,7 +5,7 @@
  */
 package persistence;
 
-import base.Model;
+import base.JSONModel;
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.File;
@@ -41,14 +41,14 @@ public class JSONReader {
      * @throws java.io.IOException
      * @throws org.json.simple.parser.ParseException
      */
-    public static List<Model> getModelList(Class c) throws IOException, ParseException, InstantiationException, IllegalAccessException{
-        List<Model> modelList = new LinkedList();
-        Model model;
+    public static List<JSONModel> getModelList(Class c) throws IOException, ParseException, InstantiationException, IllegalAccessException{
+        List<JSONModel> modelList = new LinkedList();
+        JSONModel model;
         JSONParser parser = new JSONParser();
         
         String json = file.readLine();
         while(json!=null){
-            model = (Model) c.newInstance();
+            model = (JSONModel) c.newInstance();
             JSONObject jsonObject = (JSONObject) parser.parse(json);
             model.fromJSON(jsonObject);
             modelList.add(model);

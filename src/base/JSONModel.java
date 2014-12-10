@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
  *
  * @author tan
  */
-public interface Model {
+public interface JSONModel {
     
     /**
      * 

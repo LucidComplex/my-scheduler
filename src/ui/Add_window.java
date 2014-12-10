@@ -5,11 +5,14 @@
  */
 package ui;
 
+import base.UI;
+import java.util.Map;
+
 /**
  *
  * @author MarkLester
  */
-public class Add_window extends javax.swing.JFrame {
+public class Add_window extends javax.swing.JFrame implements UI {
 
     /**
      * Creates new form Add_window
@@ -243,4 +246,13 @@ public class Add_window extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * 
+     * @see base.UI#getFields() 
+     */
+    @Override
+    public Map getFields() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

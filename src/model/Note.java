@@ -5,7 +5,7 @@
  */
 package model;
 
-import base.Model;
+import base.JSONModel;
 import java.time.Instant;
 import java.util.Map;
 import org.json.simple.JSONObject;
@@ -15,7 +15,7 @@ import org.json.simple.JSONObject;
  * 
  * @author tan
  */
-public class Note implements Model {
+public class Note implements JSONModel {
     
     private String title;
     private String body;
@@ -127,10 +127,11 @@ public class Note implements Model {
     
     /**
      * 
-     * @return returns true if Note is still in range.
+     * @return returns true if Note is still in deadline range.
      */
     public boolean isActive(){
-        return Instant.now().isAfter(begin) && Instant.now().isBefore(getDeadline());
+        return Instant.now().isAfter(begin) &&
+                Instant.now().isBefore(deadline);
     }
 
 }

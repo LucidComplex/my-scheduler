@@ -5,7 +5,7 @@
  */
 package persistence;
 
-import base.Model;
+import base.JSONModel;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -23,8 +23,8 @@ public class JSONWriter {
         JSONWriter.file = new BufferedWriter(new FileWriter(file, true));
     }
     
-    public static void writeModelList(List<Model> modelList) throws IOException{
-        for(Model m : modelList){
+    public static void writeModelList(List<JSONModel> modelList) throws IOException{
+        for(JSONModel m : modelList){
             System.out.println(m.toJSON());
             file.write(m.toJSON().toString());
             file.newLine();
