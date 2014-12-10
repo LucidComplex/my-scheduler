@@ -48,6 +48,7 @@ public class GameElement {
     
     private void updateLevel(){
         if(experience/level>level)
+            ;
     }
     
 
