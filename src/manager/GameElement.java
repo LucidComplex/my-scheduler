@@ -9,7 +9,7 @@ package manager;
  *
  * @author tan
  */
-public class GameElementManager {
+public class GameElement {
     private int level;
     private int streak;
     private int experience;
@@ -25,6 +25,7 @@ public class GameElementManager {
                     "Delta can not be negative."
             );
         experience += delta;
+        updateLevel();
     }
     
     /**
@@ -39,9 +40,38 @@ public class GameElementManager {
             throw new IllegalArgumentException(
                     "Delta can not be negative."
             );
-        if(experience-delta<0)
+        if(getExperience()-delta<0)
             return;
         experience -= delta;
+        updateLevel();
     }
+    
+    private void updateLevel(){
+        if(experience/level>level)
+    }
+    
+
+//<editor-fold defaultstate="collapsed" desc="Accessors">
+    /**
+     * @return the level
+     */
+    public int getLevel() {
+        return level;
+    }
+    
+    /**
+     * @return the streak
+     */
+    public int getStreak() {
+        return streak;
+    }
+    
+    /**
+     * @return the experience
+     */
+    public int getExperience() {
+        return experience;
+    }
+//</editor-fold>
     
 }

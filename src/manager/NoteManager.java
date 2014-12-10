@@ -59,7 +59,8 @@ public class NoteManager extends ModelManager {
     
     public void searchNoteByTitle(String title){
         throw new UnsupportedOperationException(
-                "Implement " + this.getClass().getName() + "#searchNoteByTitle(java.util.String)."
+                "Implement " + this.getClass().getName() +
+                "#searchNoteByTitle(java.util.String)."
         );
     }
 }
