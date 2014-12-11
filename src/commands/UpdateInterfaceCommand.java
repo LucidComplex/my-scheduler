@@ -6,12 +6,12 @@
 package commands;
 
 import base.Command;
-import base.JSONModel;
 import base.UI;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JLabel;
+import manager.GameElement;
 import manager.NoteManager;
 import model.Note;
 
@@ -32,6 +32,7 @@ public class UpdateInterfaceCommand extends Command {
         updateTodayIsWhat();
         updateDateOnTile();
         updateTaskTodayCount();
+        updateExp();
     }
     
     /**
@@ -80,6 +81,11 @@ public class UpdateInterfaceCommand extends Command {
                 taskCount++;
         
         taskTodayCount.setText(String.valueOf(taskCount));
+    }
+    
+    private void updateExp(){
+        JLabel exp = (JLabel) fields.get("XPPoints");
+        exp.setText(String.valueOf(GameElement.getExperience()));
     }
     
     //<editor-fold defaultstate="collapsed" desc="Helper methods">

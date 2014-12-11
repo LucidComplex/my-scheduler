@@ -68,7 +68,7 @@ public abstract class ModelManager {
      * @throws IllegalAccessException 
      */
     public static void loadModels() throws IOException, ParseException, InstantiationException, IllegalAccessException{
-        modelQueue = JSONReader.getModels(Note.class);
+        modelQueue = JSONReader.loadModels(Note.class);
     }
     
     /**

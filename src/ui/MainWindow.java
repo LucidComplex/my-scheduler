@@ -623,9 +623,8 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         TaskList1.setBackground(new java.awt.Color(240, 240, 240));
         TaskList1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         TaskList1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        String[] strings = getTodaysTasks();
         TaskList1.setModel(new javax.swing.AbstractListModel() {
-            strings;
+            String[] strings = { "Task 1", "Task 2" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -1202,15 +1201,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         fields.put(XPPoints.getName(), XPPoints);
         
         return fields;
-    }
-    
-    /**
-     * Populates the Today's tasks table.
-     * 
-     * @return String array of table items
-     */
-    private String[] getTodaysTasks(){
-        // TODO
     }
     
 }

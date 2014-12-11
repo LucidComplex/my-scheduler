@@ -41,7 +41,7 @@ public class JSONReader {
      * @throws java.io.IOException
      * @throws org.json.simple.parser.ParseException
      */
-    public static AbstractQueue<JSONModel> getModels(Class c) throws IOException, ParseException, InstantiationException, IllegalAccessException{
+    public static AbstractQueue<JSONModel> loadModels(Class c) throws IOException, ParseException, InstantiationException, IllegalAccessException{
         AbstractQueue<JSONModel> modelQueue = new PriorityQueue();
         JSONModel model;
         JSONParser parser = new JSONParser();
@@ -57,4 +57,5 @@ public class JSONReader {
         
         return modelQueue;
     }
+    
 }
