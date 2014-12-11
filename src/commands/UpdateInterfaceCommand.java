@@ -8,9 +8,12 @@ package commands;
 import base.Command;
 import base.UI;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JLabel;
+import javax.swing.JSpinner;
 import manager.GameElement;
 import manager.NoteManager;
 import model.Note;
@@ -33,6 +36,7 @@ public class UpdateInterfaceCommand extends Command {
         updateDateOnTile();
         updateTaskTodayCount();
         updateExp();
+        updateTodayCompleted();
     }
     
     /**
@@ -86,6 +90,36 @@ public class UpdateInterfaceCommand extends Command {
     private void updateExp(){
         JLabel exp = (JLabel) fields.get("XPPoints");
         exp.setText(String.valueOf(GameElement.getExperience()));
+    }
+    
+    private void updateTodayCompleted(){
+        JLabel AccomplishedTodayCount = (JLabel) fields.get("AccomplishedTodayCount");
+        List<Note> noteList = NoteManager.toList();
+        Calendar now = Calendar.getInstance();
+        Calendar completionDate = Calendar.getInstance();
+        int todayDate = now.get(Calendar.DATE);
+        int todayMonth = now.get(Calendar.MONTH);
+        int todayYear = now.get(Calendar.YEAR);
+        int taskDate;
+        int taskMonth;
+        int taskYear;
+        
+        int taskCount = 0;
+        for(Note n : noteList){
+            completionDate.setTime(n.getCompletionDate());
+            taskDate = completionDate.get(Calendar.DATE);
+            taskMonth = completionDate.get(Calendar.MONTH);
+            taskYear = completionDate.get(Calendar.YEAR);
+            
+            if(
+                n.isDone() && (
+                    todayDate==taskDate &&
+                    todayMonth==taskMonth &&
+                    todayYear==taskYear
+                )
+            )
+                taskCount++;
+        }
     }
     
     //<editor-fold defaultstate="collapsed" desc="Helper methods">

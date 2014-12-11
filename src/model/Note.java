@@ -29,6 +29,8 @@ public class Note implements JSONModel {
     private Date deadline;
     private Date begin;
     private Date reminder;
+    private Date completionDate;
+    private boolean done;
     private Color color;
     private DateFormat df;
     
@@ -38,6 +40,8 @@ public class Note implements JSONModel {
         deadline = Date.from(Instant.now());
         begin = Date.from(Instant.now());
         reminder = Date.from(Instant.now());
+        completionDate = Date.from(Instant.now());
+        done = false;
         df = new SimpleDateFormat();
     }
     
@@ -45,7 +49,9 @@ public class Note implements JSONModel {
         title = keys.get("title");
         body = keys.get("body");
         deadline = new Date();
+        completionDate = new Date();
         begin = new Date();
+        done = false;
         reminder = new Date();
         df = new SimpleDateFormat();
     }
@@ -126,6 +132,34 @@ public class Note implements JSONModel {
         return reminder;
     }
     
+    /**
+     * @return the completionDate
+     */
+    public Date getCompletionDate() {
+        return completionDate;
+    }
+
+    /**
+     * @param completionDate the completionDate to set
+     */
+    public void setCompletionDate(Date completionDate) {
+        this.completionDate = completionDate;
+    }
+
+    /**
+     * @return the done
+     */
+    public boolean isDone() {
+        return done;
+    }
+
+    /**
+     * @param done the done to set
+     */
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+    
 //</editor-fold>
     
     /**
@@ -140,6 +174,8 @@ public class Note implements JSONModel {
         json.put("deadline", formatDate(deadline));
         json.put("begin", formatDate(begin));
         json.put("reminder", formatDate(reminder));
+        json.put("done", String.valueOf(isDone()));
+        json.put("completionDate", formatDate(getCompletionDate()));
         //json.put("color", String.valueOf(color.getRGB()));
         return json;
     }
@@ -166,6 +202,8 @@ public class Note implements JSONModel {
             deadline = parseDate((String) json.get("deadline"));
             begin = parseDate((String) json.get("begin"));
             reminder = parseDate((String) json.get("reminder"));
+            setDone((boolean) Boolean.valueOf((String) json.get("done")));
+            setCompletionDate(parseDate((String) json.get("completionDate")));
 //            color = new Color(Integer.parseInt((String) json.get("color")));
         } catch (ParseException ex) {
             Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
