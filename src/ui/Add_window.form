@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -10,7 +11,7 @@
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
-    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
     <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
     <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
@@ -36,10 +37,6 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="SaveButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                      <Component id="NI1" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -125,8 +122,14 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="NI11" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="NI1" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="NI11" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -160,10 +163,12 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="EndMonth" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="EndYear" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="EndDay" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="EndMonth" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="EndDay" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="NI17" min="-2" pref="30" max="-2" attributes="0"/>
@@ -171,10 +176,12 @@
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="StartMonth" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="StartDay" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="StartYear" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="StartMonth" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="StartYear" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -223,6 +230,7 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Title:"/>
+        <Property name="name" type="java.lang.String" value="NI13" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI11">
@@ -231,6 +239,7 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Description:"/>
+        <Property name="name" type="java.lang.String" value="NI11" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI4">
@@ -239,6 +248,7 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="DAY"/>
+        <Property name="name" type="java.lang.String" value="NI4" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI3">
@@ -247,6 +257,7 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="MONTH"/>
+        <Property name="name" type="java.lang.String" value="NI3" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI5">
@@ -255,6 +266,7 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="YEAR"/>
+        <Property name="name" type="java.lang.String" value="NI5" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI9">
@@ -263,9 +275,13 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="TIME:"/>
+        <Property name="name" type="java.lang.String" value="NI9" noResource="true"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="DescriptionBoxScroll">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="DescriptionBoxScroll" noResource="true"/>
+      </Properties>
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -276,6 +292,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="name" type="java.lang.String" value="DescriptionBox" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -285,6 +302,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="TaskTitle" noResource="true"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="NI14">
@@ -292,6 +310,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="0" red="99" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="NI14" noResource="true"/>
       </Properties>
 
       <Layout>
@@ -324,6 +343,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Add new task"/>
+            <Property name="name" type="java.lang.String" value="jLabel1" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -339,6 +359,7 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="SaveButton" noResource="true"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SaveButtonMouseClicked"/>
@@ -369,6 +390,7 @@
               <Font name="Segoe UI" size="15" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Save"/>
+            <Property name="name" type="java.lang.String" value="NI12" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NI12FocusGained"/>
@@ -377,14 +399,68 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JSpinner" name="StartMonth">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel type="list">
+            <ListItem value="January"/>
+            <ListItem value="February"/>
+            <ListItem value="March"/>
+            <ListItem value="April"/>
+            <ListItem value="May"/>
+            <ListItem value="June"/>
+            <ListItem value="July"/>
+            <ListItem value="August"/>
+            <ListItem value="September"/>
+            <ListItem value="October"/>
+            <ListItem value="November"/>
+            <ListItem value="December"/>
+          </SpinnerModel>
+        </Property>
+        <Property name="name" type="java.lang.String" value="StartMonth" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="StartMonthStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSpinner" name="StartDay">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="StartDay" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="StartYear">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel type="list">
+            <ListItem value="1"/>
+            <ListItem value="2"/>
+            <ListItem value="3"/>
+            <ListItem value="4"/>
+            <ListItem value="5"/>
+            <ListItem value="6"/>
+            <ListItem value="7"/>
+            <ListItem value="8"/>
+            <ListItem value="9"/>
+            <ListItem value="10"/>
+            <ListItem value="11"/>
+            <ListItem value="12"/>
+            <ListItem value="13"/>
+            <ListItem value="14"/>
+            <ListItem value="15"/>
+            <ListItem value="16"/>
+          </SpinnerModel>
+        </Property>
+        <Property name="name" type="java.lang.String" value="StartYear" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="StartHour">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="StartHour" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="StartMeridian">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="StartMeridian" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI2">
       <Properties>
@@ -392,6 +468,7 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="END"/>
+        <Property name="name" type="java.lang.String" value="NI2" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI1">
@@ -400,6 +477,7 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="START"/>
+        <Property name="name" type="java.lang.String" value="NI1" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI16">
@@ -407,9 +485,13 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/arrow.png"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="NI16" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="StartMinutes">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="StartMinutes" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI15">
       <Properties>
@@ -417,6 +499,7 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value=":"/>
+        <Property name="name" type="java.lang.String" value="NI15" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI8">
@@ -425,6 +508,7 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="YEAR"/>
+        <Property name="name" type="java.lang.String" value="NI8" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI7">
@@ -433,6 +517,7 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="DAY"/>
+        <Property name="name" type="java.lang.String" value="NI7" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI6">
@@ -441,15 +526,28 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="MONTH"/>
+        <Property name="name" type="java.lang.String" value="NI6" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="EndYear">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="EndYear" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="EndDay">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="EndDay" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="EndMonth">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="EndMonth" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="EndHour">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="EndHour" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI17">
       <Properties>
@@ -457,11 +555,18 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value=":"/>
+        <Property name="name" type="java.lang.String" value="NI17" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="EndMinutes">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="EndMinutes" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="EndMeridian">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="EndMeridian" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NI10">
       <Properties>
@@ -469,6 +574,7 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="TIME:"/>
+        <Property name="name" type="java.lang.String" value="NI10" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>

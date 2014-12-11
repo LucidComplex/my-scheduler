@@ -97,31 +97,42 @@ public class MainWindow extends javax.swing.JFrame {
         DeleteButton2 = new javax.swing.JLabel();
         DescriptionBox2 = new javax.swing.JScrollPane();
         Description2 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        ProgramIcon = new javax.swing.JLabel();
+        AddButton = new javax.swing.JLabel();
+        NI20 = new javax.swing.JLabel();
+        RunningTaskTitle = new javax.swing.JLabel();
+        NI21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("Form"); // NOI18N
 
         MainTitle.setBackground(new java.awt.Color(255, 255, 255));
         MainTitle.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         MainTitle.setForeground(new java.awt.Color(0, 153, 153));
         MainTitle.setText("My Scheduler Pro");
+        MainTitle.setName("MainTitle"); // NOI18N
 
         mainTab.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        mainTab.setName("mainTab"); // NOI18N
+
+        homeTab.setName("homeTab"); // NOI18N
+
+        Tiles_Container.setName("Tiles_Container"); // NOI18N
 
         heyTile.setBackground(new java.awt.Color(255, 0, 102));
         heyTile.setForeground(new java.awt.Color(204, 0, 153));
         heyTile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        heyTile.setName("heyTile"); // NOI18N
 
         NI2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         NI2.setForeground(new java.awt.Color(255, 255, 255));
         NI2.setText("Hey! Welcome Back.");
+        NI2.setName("NI2"); // NOI18N
 
         TodayIsWhat.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         TodayIsWhat.setForeground(new java.awt.Color(255, 255, 255));
         TodayIsWhat.setText("Today is Terrific Thursday.");
+        TodayIsWhat.setName("TodayIsWhat"); // NOI18N
 
         javax.swing.GroupLayout heyTileLayout = new javax.swing.GroupLayout(heyTile);
         heyTile.setLayout(heyTileLayout);
@@ -148,6 +159,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         todayTile.setBackground(new java.awt.Color(0, 153, 102));
         todayTile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        todayTile.setName("todayTile"); // NOI18N
         todayTile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 todayTileMouseClicked(evt);
@@ -157,14 +169,17 @@ public class MainWindow extends javax.swing.JFrame {
         DateOnTile.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         DateOnTile.setForeground(new java.awt.Color(255, 255, 255));
         DateOnTile.setText("Dec 1, 2014");
+        DateOnTile.setName("DateOnTile"); // NOI18N
 
         NI1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         NI1.setForeground(new java.awt.Color(255, 255, 255));
         NI1.setText("Tasks");
+        NI1.setName("NI1"); // NOI18N
 
         TaskTodayCount.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         TaskTodayCount.setForeground(new java.awt.Color(255, 255, 255));
         TaskTodayCount.setText("14");
+        TaskTodayCount.setName("TaskTodayCount"); // NOI18N
 
         javax.swing.GroupLayout todayTileLayout = new javax.swing.GroupLayout(todayTile);
         todayTile.setLayout(todayTileLayout);
@@ -195,18 +210,22 @@ public class MainWindow extends javax.swing.JFrame {
 
         accomplishedTile.setBackground(new java.awt.Color(0, 153, 153));
         accomplishedTile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        accomplishedTile.setName("accomplishedTile"); // NOI18N
 
         NI3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         NI3.setForeground(new java.awt.Color(255, 255, 255));
         NI3.setText("Accomplished Today");
+        NI3.setName("NI3"); // NOI18N
 
         AccomplishedTodayCount.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         AccomplishedTodayCount.setForeground(new java.awt.Color(255, 255, 255));
         AccomplishedTodayCount.setText("3");
+        AccomplishedTodayCount.setName("AccomplishedTodayCount"); // NOI18N
 
         NI4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         NI4.setForeground(new java.awt.Color(255, 255, 255));
         NI4.setText("Tasks");
+        NI4.setName("NI4"); // NOI18N
 
         javax.swing.GroupLayout accomplishedTileLayout = new javax.swing.GroupLayout(accomplishedTile);
         accomplishedTile.setLayout(accomplishedTileLayout);
@@ -237,6 +256,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         levelTile.setBackground(new java.awt.Color(153, 0, 153));
         levelTile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        levelTile.setName("levelTile"); // NOI18N
         levelTile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 levelTileMouseClicked(evt);
@@ -246,10 +266,12 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Tasking Level");
+        jLabel14.setName("jLabel14"); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Procrastinator");
+        jLabel15.setName("jLabel15"); // NOI18N
 
         javax.swing.GroupLayout levelTileLayout = new javax.swing.GroupLayout(levelTile);
         levelTile.setLayout(levelTileLayout);
@@ -301,12 +323,17 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(levelTile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        Upcoming_Container.setName("Upcoming_Container"); // NOI18N
+
         Upcoming1Panel.setBackground(new java.awt.Color(204, 204, 204));
+        Upcoming1Panel.setName("Upcoming1Panel"); // NOI18N
 
         Upcoming1Title.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Upcoming1Title.setText("Study for CMSC 57!");
+        Upcoming1Title.setName("Upcoming1Title"); // NOI18N
 
         Upcoming1Accent.setBackground(new java.awt.Color(0, 153, 102));
+        Upcoming1Accent.setName("Upcoming1Accent"); // NOI18N
 
         javax.swing.GroupLayout Upcoming1AccentLayout = new javax.swing.GroupLayout(Upcoming1Accent);
         Upcoming1Accent.setLayout(Upcoming1AccentLayout);
@@ -321,6 +348,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         Upcoming1Sched.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         Upcoming1Sched.setText("Today 4:00 PM");
+        Upcoming1Sched.setName("Upcoming1Sched"); // NOI18N
 
         javax.swing.GroupLayout Upcoming1PanelLayout = new javax.swing.GroupLayout(Upcoming1Panel);
         Upcoming1Panel.setLayout(Upcoming1PanelLayout);
@@ -348,11 +376,14 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         Upcoming2Panel.setBackground(new java.awt.Color(204, 204, 204));
+        Upcoming2Panel.setName("Upcoming2Panel"); // NOI18N
 
         Upcoming2Title.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Upcoming2Title.setText("Assignment Physics 52");
+        Upcoming2Title.setName("Upcoming2Title"); // NOI18N
 
         Upcoming2Accent.setBackground(new java.awt.Color(0, 153, 102));
+        Upcoming2Accent.setName("Upcoming2Accent"); // NOI18N
 
         javax.swing.GroupLayout Upcoming2AccentLayout = new javax.swing.GroupLayout(Upcoming2Accent);
         Upcoming2Accent.setLayout(Upcoming2AccentLayout);
@@ -367,6 +398,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         Upcoming2Sched.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         Upcoming2Sched.setText("Today 8:00 PM");
+        Upcoming2Sched.setName("Upcoming2Sched"); // NOI18N
 
         javax.swing.GroupLayout Upcoming2PanelLayout = new javax.swing.GroupLayout(Upcoming2Panel);
         Upcoming2Panel.setLayout(Upcoming2PanelLayout);
@@ -394,11 +426,14 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         Upcoming3Panel.setBackground(new java.awt.Color(204, 204, 204));
+        Upcoming3Panel.setName("Upcoming3Panel"); // NOI18N
 
         Upcoming3Title.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Upcoming3Title.setText("Find out the essence of life");
+        Upcoming3Title.setName("Upcoming3Title"); // NOI18N
 
         Upcoming3Accent.setBackground(new java.awt.Color(0, 153, 102));
+        Upcoming3Accent.setName("Upcoming3Accent"); // NOI18N
 
         javax.swing.GroupLayout Upcoming3AccentLayout = new javax.swing.GroupLayout(Upcoming3Accent);
         Upcoming3Accent.setLayout(Upcoming3AccentLayout);
@@ -413,6 +448,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         Upcoming3Sched.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         Upcoming3Sched.setText("Today 9:00 PM");
+        Upcoming3Sched.setName("Upcoming3Sched"); // NOI18N
 
         javax.swing.GroupLayout Upcoming3PanelLayout = new javax.swing.GroupLayout(Upcoming3Panel);
         Upcoming3Panel.setLayout(Upcoming3PanelLayout);
@@ -465,10 +501,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         NI6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         NI6.setText("Upcoming Today");
+        NI6.setName("NI6"); // NOI18N
 
         Upcoming_See_All_Button.setBackground(new java.awt.Color(204, 204, 204));
         Upcoming_See_All_Button.setForeground(new java.awt.Color(204, 255, 204));
         Upcoming_See_All_Button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Upcoming_See_All_Button.setName("Upcoming_See_All_Button"); // NOI18N
         Upcoming_See_All_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Upcoming_See_All_ButtonMouseClicked(evt);
@@ -483,6 +521,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         NI7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         NI7.setText("See all");
+        NI7.setName("NI7"); // NOI18N
         NI7.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 NI7FocusGained(evt);
@@ -540,6 +579,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainTab.addTab("  home    ", homeTab);
 
+        todayTab.setName("todayTab"); // NOI18N
+
+        TaskListBox1.setName("TaskListBox1"); // NOI18N
+
         TaskList1.setBackground(new java.awt.Color(240, 240, 240));
         TaskList1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         TaskList1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -548,47 +591,62 @@ public class MainWindow extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        TaskList1.setName("TaskList1"); // NOI18N
         TaskListBox1.setViewportView(TaskList1);
 
         TaskTitle1.setBackground(new java.awt.Color(0, 102, 102));
         TaskTitle1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         TaskTitle1.setText("Study CMSC 57");
+        TaskTitle1.setName("TaskTitle1"); // NOI18N
 
         NI8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI8.setText("*select a task from the list to see details");
+        NI8.setName("NI8"); // NOI18N
 
         NI9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI9.setText("Scheduled Time:");
+        NI9.setName("NI9"); // NOI18N
 
         NI10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI10.setText("Duration:");
+        NI10.setName("NI10"); // NOI18N
 
         NI11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI11.setText("Accomplished?:");
+        NI11.setName("NI11"); // NOI18N
 
         NI12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI12.setText("Description:");
+        NI12.setName("NI12"); // NOI18N
+
+        DescriptionBox1.setName("DescriptionBox1"); // NOI18N
 
         Description1.setBackground(new java.awt.Color(240, 240, 240));
         Description1.setColumns(20);
         Description1.setRows(5);
         Description1.setFocusable(false);
+        Description1.setName("Description1"); // NOI18N
         DescriptionBox1.setViewportView(Description1);
 
         DeleteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
         DeleteButton1.setText("  DELETE");
+        DeleteButton1.setName("DeleteButton1"); // NOI18N
 
         TaskSched1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TaskSched1.setText("12:00 PM - 1:00 PM");
+        TaskSched1.setName("TaskSched1"); // NOI18N
 
         TaskDuration1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TaskDuration1.setText("1 Hour");
+        TaskDuration1.setName("TaskDuration1"); // NOI18N
 
         AccomplishedYesNo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AccomplishedYesNo1.setText("No");
+        AccomplishedYesNo1.setName("AccomplishedYesNo1"); // NOI18N
 
         AccomplishButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check.png"))); // NOI18N
         AccomplishButton1.setText("ACCOMPLISH");
+        AccomplishButton1.setName("AccomplishButton1"); // NOI18N
 
         javax.swing.GroupLayout todayTabLayout = new javax.swing.GroupLayout(todayTab);
         todayTab.setLayout(todayTabLayout);
@@ -659,6 +717,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainTab.addTab("  today    ", todayTab);
 
+        all_tasksTab.setName("all_tasksTab"); // NOI18N
+
+        TaskListBox.setName("TaskListBox"); // NOI18N
+
         TaskList.setBackground(new java.awt.Color(240, 240, 240));
         TaskList.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         TaskList.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -667,46 +729,61 @@ public class MainWindow extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        TaskList.setName("TaskList"); // NOI18N
         TaskListBox.setViewportView(TaskList);
 
         TaskTitle2.setBackground(new java.awt.Color(0, 102, 102));
         TaskTitle2.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         TaskTitle2.setText("Study CMSC 57");
+        TaskTitle2.setName("TaskTitle2"); // NOI18N
 
         NI13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI13.setText("Scheduled Time:");
+        NI13.setName("NI13"); // NOI18N
 
         TaskSched2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TaskSched2.setText("12:00 PM - 1:00 PM");
+        TaskSched2.setName("TaskSched2"); // NOI18N
 
         TaskDuration2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TaskDuration2.setText("1 Hour");
+        TaskDuration2.setName("TaskDuration2"); // NOI18N
 
         NI14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI14.setText("Duration:");
+        NI14.setName("NI14"); // NOI18N
 
         NI15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI15.setText("Accomplished?:");
+        NI15.setName("NI15"); // NOI18N
 
         AccomplishedYesNo2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AccomplishedYesNo2.setText("No");
+        AccomplishedYesNo2.setName("AccomplishedYesNo2"); // NOI18N
 
         NI16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI16.setText("Description:");
+        NI16.setName("NI16"); // NOI18N
 
         NI17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI17.setText("*select a task from the list to see details");
+        NI17.setName("NI17"); // NOI18N
 
         AccomplishButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check.png"))); // NOI18N
         AccomplishButton2.setText("ACCOMPLISH");
+        AccomplishButton2.setName("AccomplishButton2"); // NOI18N
 
         DeleteButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
         DeleteButton2.setText("  DELETE");
+        DeleteButton2.setName("DeleteButton2"); // NOI18N
+
+        DescriptionBox2.setName("DescriptionBox2"); // NOI18N
 
         Description2.setBackground(new java.awt.Color(240, 240, 240));
         Description2.setColumns(20);
         Description2.setRows(5);
         Description2.setFocusable(false);
+        Description2.setName("Description2"); // NOI18N
         DescriptionBox2.setViewportView(Description2);
 
         javax.swing.GroupLayout all_tasksTabLayout = new javax.swing.GroupLayout(all_tasksTab);
@@ -783,21 +860,26 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainTab.addTab("  all tasks    ", all_tasksTab);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/software_icon.png"))); // NOI18N
+        ProgramIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/software_icon.png"))); // NOI18N
+        ProgramIcon.setName("ProgramIcon"); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pencil_icon.png"))); // NOI18N
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        AddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pencil_icon.png"))); // NOI18N
+        AddButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddButton.setName("AddButton"); // NOI18N
+        AddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                AddButtonMouseClicked(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel3.setText("Currently Running Task:");
+        NI20.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        NI20.setText("Currently Running Task:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Study CMSC 57");
+        RunningTaskTitle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        RunningTaskTitle.setText("Study CMSC 57");
+
+        NI21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/running.png"))); // NOI18N
+        NI21.setName("NI21"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -808,18 +890,20 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(mainTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(ProgramIcon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115)
+                        .addGap(71, 71, 71)
+                        .addComponent(NI21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(RunningTaskTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(43, 43, 43))))
+                        .addComponent(AddButton)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -827,12 +911,14 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ProgramIcon)
+                        .addComponent(AddButton, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(NI20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(NI21))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel5)
+                            .addComponent(RunningTaskTitle)
                             .addGap(9, 9, 9)))
                     .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -864,9 +950,9 @@ public class MainWindow extends javax.swing.JFrame {
         homeTab.setBackground(new java.awt.Color(204, 204, 204));
     }//GEN-LAST:event_Upcoming_See_All_ButtonMouseExited
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void AddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddButtonMouseClicked
         add_window.setVisible(true);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_AddButtonMouseClicked
 
     private void todayTileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_todayTileMouseClicked
         mainTab.setSelectedIndex(1);
@@ -913,6 +999,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel AccomplishedTodayCount;
     private javax.swing.JLabel AccomplishedYesNo1;
     private javax.swing.JLabel AccomplishedYesNo2;
+    private javax.swing.JLabel AddButton;
     private javax.swing.JLabel DateOnTile;
     private javax.swing.JLabel DeleteButton1;
     private javax.swing.JLabel DeleteButton2;
@@ -931,12 +1018,16 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel NI16;
     private javax.swing.JLabel NI17;
     private javax.swing.JLabel NI2;
+    private javax.swing.JLabel NI20;
+    private javax.swing.JLabel NI21;
     private javax.swing.JLabel NI3;
     private javax.swing.JLabel NI4;
     private javax.swing.JLabel NI6;
     private javax.swing.JLabel NI7;
     private javax.swing.JLabel NI8;
     private javax.swing.JLabel NI9;
+    private javax.swing.JLabel ProgramIcon;
+    private javax.swing.JLabel RunningTaskTitle;
     private javax.swing.JLabel TaskDuration1;
     private javax.swing.JLabel TaskDuration2;
     private javax.swing.JList TaskList;
@@ -968,12 +1059,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel all_tasksTab;
     private javax.swing.JPanel heyTile;
     private javax.swing.JPanel homeTab;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel levelTile;
     private javax.swing.JTabbedPane mainTab;
     private javax.swing.JPanel todayTab;
