@@ -123,7 +123,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         RankTop = new javax.swing.JLabel();
         NI24 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Form"); // NOI18N
 
         MainTitle.setBackground(new java.awt.Color(255, 255, 255));
@@ -608,7 +608,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                 .addGroup(homeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainTab.addTab("  home    ", homeTab);

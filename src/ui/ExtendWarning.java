@@ -5,13 +5,15 @@
  */
 package ui;
 
-import javax.swing.JFrame;
+import base.UI;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author MarkLester
  */
-public class ExtendWarning extends javax.swing.JFrame {
+public class ExtendWarning extends javax.swing.JFrame implements UI {
 
     /**
      * Creates new form ExtendWarning
@@ -38,7 +40,7 @@ public class ExtendWarning extends javax.swing.JFrame {
         CancelButton = new javax.swing.JPanel();
         NI18 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         NI2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI2.setText("Extending Deadline requires 100 XP Points!");
@@ -248,4 +250,11 @@ public class ExtendWarning extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private ExtendSched ExtendSched;
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        fields.put(XPPoints.getName(), XPPoints);
+        return fields;
+    }
 }

@@ -78,7 +78,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
         CancelButton = new javax.swing.JPanel();
         NI18 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Form"); // NOI18N
 
         NI13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
