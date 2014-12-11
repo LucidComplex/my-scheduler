@@ -6,8 +6,8 @@
 package ui;
 
 import base.UI;
+import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JFrame;
 
 /**
  *
@@ -40,7 +40,7 @@ public class ExtendWarning extends javax.swing.JFrame implements UI {
         CancelButton = new javax.swing.JPanel();
         NI18 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         NI2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI2.setText("Extending Deadline requires 100 XP Points!");
@@ -218,6 +218,8 @@ public class ExtendWarning extends javax.swing.JFrame implements UI {
 
     @Override
     public Map getFields() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map fields = new HashMap();
+        fields.put(XPPoints.getName(), XPPoints);
+        return fields;
     }
 }
