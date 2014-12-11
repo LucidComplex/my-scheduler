@@ -1099,6 +1099,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         fields.put(TaskingLevel.getName(), TaskingLevel);    
         fields.put(TaskTodayCount.getName(), TaskTodayCount);
         fields.put(AccomplishedTodayCount.getName(), AccomplishedTodayCount);
+        fields.put(RankTop.getName(), RankTop);
         
         return fields;
     }
