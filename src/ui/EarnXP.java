@@ -32,7 +32,7 @@ public class EarnXP extends javax.swing.JFrame {
         CollectButton = new javax.swing.JPanel();
         NI3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         NI1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         NI1.setText("CONGRATULATIONS!");
