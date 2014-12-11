@@ -28,6 +28,7 @@ public class UpdateInterfaceCommand extends Command {
     public void execute() {
         updateRunningTaskLabel();
         updateTodayIsWhat();
+        updateDateOnTile();
     }
     
     /**
@@ -52,6 +53,15 @@ public class UpdateInterfaceCommand extends Command {
         todayIsWhat.setText(builder.toString());
     }
     
+    private void updateDateOnTile(){
+        JLabel dateOnTile = (JLabel) fields.get("DateOnTile");
+        Calendar now = Calendar.getInstance();
+        StringBuilder builder = new StringBuilder();
+        builder.append(now.get(Calendar.MONTH)).append(", ");
+    }
+    
+    //<editor-fold defaultstate="collapsed" desc="Helper methods">
+    
     private String intToDayOfWeek(int day){
         switch(day){
             case 1:
@@ -72,4 +82,11 @@ public class UpdateInterfaceCommand extends Command {
         return null;
     }
     
+    private String intToMonth(int month){
+        switch(month){
+            // TODO
+        }
+    }
+            
+//</editor-fold>
 }

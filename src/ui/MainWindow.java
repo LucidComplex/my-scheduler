@@ -11,7 +11,10 @@ import exceptions.CommandNotFoundException;
 import factory.CommandFactory;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import manager.Executor;
 
 /**
@@ -33,6 +36,17 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         Executor.execute(UpdateInterfaceCommand.class);
         ExtendWindow = new ExtendWarning();
         xp = new EarnXP();
+        SwingUtilities.invokeLater(
+                new Runnable() {
+                    public void run() {
+                        try {
+                            Executor.execute(UpdateInterfaceCommand.class);
+                        } catch (CommandNotFoundException ex) {
+                            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+        );
     }
 
     /**
