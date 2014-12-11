@@ -65,7 +65,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
         EndMinutes = new javax.swing.JSpinner();
         EndMeridian = new javax.swing.JSpinner();
         NI10 = new javax.swing.JLabel();
-        SaveButton1 = new javax.swing.JPanel();
+        CancelButton = new javax.swing.JPanel();
         NI18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -243,23 +243,24 @@ public class Add_window extends javax.swing.JFrame implements UI {
         NI10.setText("TIME:");
         NI10.setName("NI10"); // NOI18N
 
-        SaveButton1.setBackground(new java.awt.Color(153, 153, 153));
-        SaveButton1.setForeground(new java.awt.Color(204, 255, 204));
-        SaveButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SaveButton1.setName("SaveButton1"); // NOI18N
-        SaveButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        CancelButton.setBackground(new java.awt.Color(153, 153, 153));
+        CancelButton.setForeground(new java.awt.Color(255, 255, 255));
+        CancelButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CancelButton.setName("CancelButton"); // NOI18N
+        CancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SaveButton1MouseClicked(evt);
+                CancelButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SaveButton1MouseEntered(evt);
+                CancelButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                SaveButton1MouseExited(evt);
+                CancelButtonMouseExited(evt);
             }
         });
 
         NI18.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        NI18.setForeground(new java.awt.Color(255, 255, 255));
         NI18.setText("Cancel");
         NI18.setName("NI18"); // NOI18N
         NI18.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -268,17 +269,17 @@ public class Add_window extends javax.swing.JFrame implements UI {
             }
         });
 
-        javax.swing.GroupLayout SaveButton1Layout = new javax.swing.GroupLayout(SaveButton1);
-        SaveButton1.setLayout(SaveButton1Layout);
-        SaveButton1Layout.setHorizontalGroup(
-            SaveButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SaveButton1Layout.createSequentialGroup()
+        javax.swing.GroupLayout CancelButtonLayout = new javax.swing.GroupLayout(CancelButton);
+        CancelButton.setLayout(CancelButtonLayout);
+        CancelButtonLayout.setHorizontalGroup(
+            CancelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CancelButtonLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(NI18)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
-        SaveButton1Layout.setVerticalGroup(
-            SaveButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        CancelButtonLayout.setVerticalGroup(
+            CancelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(NI18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
@@ -297,7 +298,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
                     .addComponent(DescriptionBoxScroll)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(SaveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -340,11 +341,9 @@ public class Add_window extends javax.swing.JFrame implements UI {
                                         .addGap(29, 29, 29)
                                         .addComponent(EndMonth)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(EndMinutes))
-                                    .addComponent(EndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(EndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EndMinutes))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(EndYear, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
@@ -432,11 +431,11 @@ public class Add_window extends javax.swing.JFrame implements UI {
                             .addGap(33, 33, 33))))
                 .addComponent(NI11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(DescriptionBoxScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addComponent(DescriptionBoxScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SaveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -459,29 +458,29 @@ public class Add_window extends javax.swing.JFrame implements UI {
         
     }//GEN-LAST:event_SaveButtonMouseExited
 
-    private void StartMonthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_StartMonthStateChanged
-
-
-    }//GEN-LAST:event_StartMonthStateChanged
-
     private void NI18FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NI18FocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_NI18FocusGained
 
-    private void SaveButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButton1MouseClicked
+    private void CancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaveButton1MouseClicked
+    }//GEN-LAST:event_CancelButtonMouseClicked
 
-    private void SaveButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButton1MouseEntered
+    private void CancelButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelButtonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaveButton1MouseEntered
+    }//GEN-LAST:event_CancelButtonMouseEntered
 
-    private void SaveButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButton1MouseExited
+    private void CancelButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelButtonMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaveButton1MouseExited
+    }//GEN-LAST:event_CancelButtonMouseExited
+
+    private void StartMonthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_StartMonthStateChanged
+
+    }//GEN-LAST:event_StartMonthStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CancelButton;
     private javax.swing.JTextArea DescriptionBox;
     private javax.swing.JScrollPane DescriptionBoxScroll;
     private javax.swing.JSpinner EndDay;
@@ -509,7 +508,6 @@ public class Add_window extends javax.swing.JFrame implements UI {
     private javax.swing.JLabel NI8;
     private javax.swing.JLabel NI9;
     private javax.swing.JPanel SaveButton;
-    private javax.swing.JPanel SaveButton1;
     private javax.swing.JSpinner StartDay;
     private javax.swing.JSpinner StartHour;
     private javax.swing.JSpinner StartMeridian;
