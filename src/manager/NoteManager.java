@@ -6,7 +6,7 @@
 package manager;
 
 import base.ModelManager;
-import factory.ModelFactory;
+import factory.JSONModelFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -25,8 +25,8 @@ public class NoteManager extends ModelManager {
         this();
         saveFile = filepath;
         file = new File(filepath);
-        JSONReader.setFile(file);
         JSONWriter.setFile(file);
+        JSONReader.setFile(file);
     }
     
     public NoteManager(){
@@ -52,9 +52,9 @@ public class NoteManager extends ModelManager {
      * 
      * @see factory.ModelFactory#createNote(java.util.Map) 
      */
-    public void createNote(Map args){
-        Note note = ModelFactory.createNote(args);
-        super.addModel(note);
+    public void createNote(Map args) throws InstantiationException, IllegalAccessException{
+        Note note = (Note) JSONModelFactory.create(Note.class);
+        super.manage(note);
     }
     
     public void searchNoteByTitle(String title){

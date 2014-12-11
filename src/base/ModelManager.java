@@ -24,12 +24,13 @@ public abstract class ModelManager {
     protected File file;
     
     /**
+     * Manages a model.
      * 
-     * @param model adds a JSONModel to the manager
+     * @param model adds JSONModel to the manager
      * 
      * @see List#add(java.lang.Object) 
      */
-    public void addModel(JSONModel model){
+    public void manage(JSONModel model){
         modelList.add(model); // can be improved, implement a list/pq?
     }
     

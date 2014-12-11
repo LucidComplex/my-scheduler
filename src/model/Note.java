@@ -6,7 +6,9 @@
 package model;
 
 import base.JSONModel;
+import java.time.Instant;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Map;
 import org.json.simple.JSONObject;
@@ -20,21 +22,21 @@ public class Note implements JSONModel {
     
     private String title;
     private String body;
-    private Calendar deadline;
-    private Calendar begin;
+    private Date deadline;
+    private Date begin;
     
     public Note(){
         title = "";
         body = "";
-        deadline = Calendar.getInstance();
-        begin = Calendar.getInstance();
+        deadline = Date.from(Instant.now());
+        begin = Date.from(Instant.now());
     }
     
     public Note(Map<String, String> keys){
         title = keys.get("title");
         body = keys.get("body");
-        deadline = new GregorianCalendar();
-        begin = new GregorianCalendar();
+        deadline = new Date();
+        begin = new Date();
     }
     
 //<editor-fold defaultstate="collapsed" desc="Accessors">
@@ -74,28 +76,28 @@ public class Note implements JSONModel {
     /**
      * @return the begin
      */
-    public Calendar getBegin() {
+    public Date getBegin() {
         return begin;
     }
     
     /**
      * @param begin the begin to set
      */
-    public void setBegin(Calendar begin) {
+    public void setBegin(Date begin) {
         this.begin = begin;
     }
     
         /**
      * @return the deadline
      */
-    public Calendar getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
 
     /**
      * @param deadline the deadline to set
      */
-    public void setDeadline(Calendar deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
     
@@ -125,8 +127,8 @@ public class Note implements JSONModel {
     public void fromJSON(JSONObject json) {
         title = (String) json.get("title");
         body = (String) json.get("body");
-        deadline = new GregorianCalendar();
-        begin = new GregorianCalendar();
+        deadline = new Date();
+        begin = new Date();
     }
     
     /**
@@ -134,8 +136,9 @@ public class Note implements JSONModel {
      * @return returns true if Note is still in deadline range.
      */
     public boolean isActive(){
-        return Calendar.getInstance().after(begin) &&
-                Calendar.getInstance().before(deadline);
+        Date now = new Date();
+        return now.after(begin) &&
+                now.before(deadline);
     }
 
 }
