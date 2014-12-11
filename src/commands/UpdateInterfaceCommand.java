@@ -6,8 +6,10 @@
 package commands;
 
 import base.Command;
+import base.JSONModel;
 import base.UI;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 import javax.swing.JLabel;
 import manager.NoteManager;
@@ -29,6 +31,7 @@ public class UpdateInterfaceCommand extends Command {
         updateRunningTaskLabel();
         updateTodayIsWhat();
         updateDateOnTile();
+        updateTaskTodayCount();
     }
     
     /**
@@ -53,11 +56,30 @@ public class UpdateInterfaceCommand extends Command {
         todayIsWhat.setText(builder.toString());
     }
     
+    /**
+     * updates DateOnTile label.
+     */
     private void updateDateOnTile(){
         JLabel dateOnTile = (JLabel) fields.get("DateOnTile");
         Calendar now = Calendar.getInstance();
         StringBuilder builder = new StringBuilder();
-        builder.append(now.get(Calendar.MONTH)).append(", ");
+        builder.append(intToMonth(now.get(Calendar.MONTH))).append(", ");
+        builder.append(now.get(Calendar.DATE)).append(" ");
+        builder.append(now.get(Calendar.YEAR));
+        dateOnTile.setText(builder.toString());
+    }
+    
+    private void updateTaskTodayCount(){
+        JLabel taskTodayCount = (JLabel) fields.get("TaskTodayCount");
+        List<Note> noteList = NoteManager.toList();
+        
+        // only account for active tasks "today" tasks
+        int taskCount = 0;
+        for(Note n : noteList)
+            if(n.isActive())
+                taskCount++;
+        
+        taskTodayCount.setText(String.valueOf(taskCount));
     }
     
     //<editor-fold defaultstate="collapsed" desc="Helper methods">

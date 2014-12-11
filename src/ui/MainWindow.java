@@ -36,17 +36,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         Executor.execute(UpdateInterfaceCommand.class);
         ExtendWindow = new ExtendWarning();
         xp = new EarnXP();
-        SwingUtilities.invokeLater(
-                new Runnable() {
-                    public void run() {
-                        try {
-                            Executor.execute(UpdateInterfaceCommand.class);
-                        } catch (CommandNotFoundException ex) {
-                            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-        );
     }
 
     /**
@@ -1191,6 +1180,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         fields.put(TaskDuration2.getName(), TaskDuration2);
         fields.put(AccomplishedYesNo2.getName(), AccomplishedYesNo2);
         fields.put(Description2.getName(),Description2);
+        fields.put(DateOnTile.getName(), DateOnTile);
         
         fields.put(TaskList1.getName(), TaskList1);
         fields.put(RunningTaskTitle.getName(), RunningTaskTitle);

@@ -8,6 +8,7 @@ package ui;
 import base.UI;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JFrame;
 
 /**
  *

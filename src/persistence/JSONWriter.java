@@ -20,7 +20,7 @@ public class JSONWriter {
     private static BufferedWriter file;
     
     public static void setFile(File file) throws IOException{
-        JSONWriter.file = new BufferedWriter(new FileWriter(file));
+        JSONWriter.file = new BufferedWriter(new FileWriter(file, true));
     }
     
     public static void writeModels(AbstractQueue<JSONModel> modelList) throws IOException{
