@@ -189,7 +189,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
 
         TaskTodayCount.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         TaskTodayCount.setForeground(new java.awt.Color(255, 255, 255));
-        TaskTodayCount.setText("14");
+        TaskTodayCount.setText("0");
         TaskTodayCount.setName("TaskTodayCount"); // NOI18N
 
         javax.swing.GroupLayout todayTileLayout = new javax.swing.GroupLayout(todayTile);
@@ -230,7 +230,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
 
         AccomplishedTodayCount.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         AccomplishedTodayCount.setForeground(new java.awt.Color(255, 255, 255));
-        AccomplishedTodayCount.setText("3");
+        AccomplishedTodayCount.setText("0");
         AccomplishedTodayCount.setName("AccomplishedTodayCount"); // NOI18N
 
         NI4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -340,7 +340,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         Upcoming1Panel.setName("Upcoming1Panel"); // NOI18N
 
         Upcoming1Title.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Upcoming1Title.setText("Study for CMSC 57!");
         Upcoming1Title.setName("Upcoming1Title"); // NOI18N
 
         Upcoming1Accent.setBackground(new java.awt.Color(0, 153, 102));
@@ -358,7 +357,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         );
 
         Upcoming1Sched.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        Upcoming1Sched.setText("Today 4:00 PM");
         Upcoming1Sched.setName("Upcoming1Sched"); // NOI18N
 
         javax.swing.GroupLayout Upcoming1PanelLayout = new javax.swing.GroupLayout(Upcoming1Panel);
@@ -390,7 +388,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         Upcoming2Panel.setName("Upcoming2Panel"); // NOI18N
 
         Upcoming2Title.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Upcoming2Title.setText("Assignment Physics 52");
         Upcoming2Title.setName("Upcoming2Title"); // NOI18N
 
         Upcoming2Accent.setBackground(new java.awt.Color(0, 153, 102));
@@ -408,7 +405,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         );
 
         Upcoming2Sched.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        Upcoming2Sched.setText("Today 8:00 PM");
         Upcoming2Sched.setName("Upcoming2Sched"); // NOI18N
 
         javax.swing.GroupLayout Upcoming2PanelLayout = new javax.swing.GroupLayout(Upcoming2Panel);
@@ -440,7 +436,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         Upcoming3Panel.setName("Upcoming3Panel"); // NOI18N
 
         Upcoming3Title.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Upcoming3Title.setText("Find out the essence of life");
         Upcoming3Title.setName("Upcoming3Title"); // NOI18N
 
         Upcoming3Accent.setBackground(new java.awt.Color(0, 153, 102));
@@ -458,7 +453,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         );
 
         Upcoming3Sched.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        Upcoming3Sched.setText("Today 9:00 PM");
         Upcoming3Sched.setName("Upcoming3Sched"); // NOI18N
 
         javax.swing.GroupLayout Upcoming3PanelLayout = new javax.swing.GroupLayout(Upcoming3Panel);
@@ -929,7 +923,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(RunningTaskTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NI20, javax.swing.GroupLayout.PREFERRED_SIZE, 175, Short.MAX_VALUE))
+                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NI24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
