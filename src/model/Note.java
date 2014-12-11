@@ -6,7 +6,6 @@
 package model;
 
 import base.JSONModel;
-import java.time.Instant;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Map;
@@ -27,6 +26,8 @@ public class Note implements JSONModel {
     public Note(){
         title = "";
         body = "";
+        deadline = Calendar.getInstance();
+        begin = Calendar.getInstance();
     }
     
     public Note(Map<String, String> keys){
@@ -110,7 +111,7 @@ public class Note implements JSONModel {
         
         json.put("title", title);
         json.put("body", body);
-        json.put("deadline", getDeadline().toString());
+        json.put("deadline", deadline.toString());
         json.put("begin", begin.toString());
         
         return json;

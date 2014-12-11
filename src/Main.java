@@ -1,4 +1,7 @@
 
+import base.JSONModel;
+import commands.AddNoteCommand;
+import factory.JSONModelFactory;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
 
@@ -14,6 +17,6 @@ import org.json.simple.parser.ParseException;
  */
 public class Main {
     public static void main(String[] args) throws IOException, ParseException, InstantiationException, IllegalAccessException {
-        
+        System.out.println(note.toJSON());
     }
 }
