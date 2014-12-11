@@ -10,9 +10,12 @@ import commands.AddNoteCommand;
 import exceptions.CommandNotFoundException;
 import factory.CommandFactory;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SpinnerListModel;
 import manager.Executor;
 
 /**
@@ -185,12 +188,13 @@ public class Add_window extends javax.swing.JFrame implements UI {
             }
         });
 
+        StartDay.setModel(new SpinnerListModel(yearList(2014)));
         StartDay.setName("StartDay"); // NOI18N
 
-        StartYear.setModel(new javax.swing.SpinnerListModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"}));
+        StartYear.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
         StartYear.setName("StartYear"); // NOI18N
 
-        StartHour.setModel(new javax.swing.SpinnerListModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+        StartHour.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
         StartHour.setName("StartHour"); // NOI18N
 
         StartMeridian.setModel(new javax.swing.SpinnerListModel(new String[] {"AM", "PM"}));
@@ -207,7 +211,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
         NI16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/arrow.png"))); // NOI18N
         NI16.setName("NI16"); // NOI18N
 
-        StartMinutes.setModel(new javax.swing.SpinnerListModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
+        StartMinutes.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         StartMinutes.setName("StartMinutes"); // NOI18N
 
         NI15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -226,21 +230,23 @@ public class Add_window extends javax.swing.JFrame implements UI {
         NI6.setText("MONTH");
         NI6.setName("NI6"); // NOI18N
 
+        EndYear.setModel(new SpinnerListModel(yearList(2014)));
         EndYear.setName("EndYear"); // NOI18N
 
+        EndDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
         EndDay.setName("EndDay"); // NOI18N
 
         EndMonth.setModel(new javax.swing.SpinnerListModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
         EndMonth.setName("EndMonth"); // NOI18N
 
-        EndHour.setModel(new javax.swing.SpinnerListModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+        EndHour.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
         EndHour.setName("EndHour"); // NOI18N
 
         NI17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI17.setText(":");
         NI17.setName("NI17"); // NOI18N
 
-        EndMinutes.setModel(new javax.swing.SpinnerListModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
+        EndMinutes.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         EndMinutes.setName("EndMinutes"); // NOI18N
 
         EndMeridian.setModel(new javax.swing.SpinnerListModel(new String[] {"AM", "PM"}));
@@ -556,4 +562,13 @@ public class Add_window extends javax.swing.JFrame implements UI {
         
         return fields;
     }
+    
+    private List<Integer> yearList(int beginYear){
+        int limit = beginYear + 100;
+        List<Integer> years = new LinkedList();
+        for(int i=beginYear; i<=limit; i++)
+            years.add(i);
+        return years;
+    }
 }
+

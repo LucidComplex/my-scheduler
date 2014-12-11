@@ -140,7 +140,7 @@ public class Note implements JSONModel {
         json.put("deadline", formatDate(deadline));
         json.put("begin", formatDate(begin));
         json.put("reminder", formatDate(reminder));
-        json.put("color", String.valueOf(color.getRGB()));
+        //json.put("color", String.valueOf(color.getRGB()));
         return json;
     }
     
@@ -166,7 +166,7 @@ public class Note implements JSONModel {
             deadline = parseDate((String) json.get("deadline"));
             begin = parseDate((String) json.get("begin"));
             reminder = parseDate((String) json.get("reminder"));
-            color = new Color(Integer.parseInt((String) json.get("color")));
+//            color = new Color(Integer.parseInt((String) json.get("color")));
         } catch (ParseException ex) {
             Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
         }
