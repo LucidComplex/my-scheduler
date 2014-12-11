@@ -27,9 +27,12 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         initComponents();
         Executor.put(UpdateInterfaceCommand.class, CommandFactory.createUpdateInterfaceCommand(this));
         add_window = new Add_window();
+<<<<<<< HEAD
+        Executor.execute(UpdateInterfaceCommand.class);
+=======
         ExtendWindow = new ExtendWarning();
-        Executor.execute()
         xp = new EarnXP();
+>>>>>>> 735cd2e057cc02ce870c8dfebe015aba321ea47d
     }
 
     /**
@@ -959,9 +962,11 @@ public class MainWindow extends javax.swing.JFrame implements UI {
 
         NI20.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         NI20.setText("Currently Running Task:");
+        NI20.setName("NI20"); // NOI18N
 
         RunningTaskTitle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         RunningTaskTitle.setText("Study CMSC 57");
+        RunningTaskTitle.setName("RunningTaskTitle"); // NOI18N
 
         NI21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/running.png"))); // NOI18N
         NI21.setName("NI21"); // NOI18N
@@ -997,7 +1002,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(RunningTaskTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+                            .addComponent(NI20, javax.swing.GroupLayout.PREFERRED_SIZE, 175, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NI24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1066,6 +1071,8 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         mainTab.setSelectedIndex(1);
     }//GEN-LAST:event_todayTileMouseClicked
 
+<<<<<<< HEAD
+=======
     private void ExtendButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExtendButton1MouseClicked
        ExtendWindow.setVisible(true);
     }//GEN-LAST:event_ExtendButton1MouseClicked
@@ -1082,6 +1089,42 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         xp.setVisible(true);
     }//GEN-LAST:event_AccomplishButton2MouseClicked
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainWindow().setVisible(true);
+            }
+        });
+    }
+
+>>>>>>> 735cd2e057cc02ce870c8dfebe015aba321ea47d
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AccomplishButton1;
     private javax.swing.JLabel AccomplishButton2;
@@ -1162,7 +1205,47 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     private javax.swing.JPanel todayTab;
     private javax.swing.JPanel todayTile;
     // End of variables declaration//GEN-END:variables
+<<<<<<< HEAD
+    private JFrame add_window;
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        
+        fields.put(TaskTitle1.getName(), TaskTitle1);
+        fields.put(TaskSched1.getName(), TaskSched1);
+        fields.put(TaskDuration1.getName(), TaskDuration1);
+        fields.put(AccomplishedYesNo1.getName(), AccomplishedYesNo1);
+        fields.put(Description1.getName(),Description1);
+        
+        fields.put(TaskTitle2.getName(), TaskTitle2);
+        fields.put(TaskSched2.getName(), TaskSched2);
+        fields.put(TaskDuration2.getName(), TaskDuration2);
+        fields.put(AccomplishedYesNo2.getName(), AccomplishedYesNo2);
+        fields.put(Description2.getName(),Description2);
+        
+        fields.put(TaskList1.getName(), TaskList1);
+        fields.put(RunningTaskTitle.getName(), RunningTaskTitle);
+        
+        fields.put(Upcoming1Title.getName(), Upcoming1Title);
+        fields.put(Upcoming2Title.getName(), Upcoming2Title);
+        fields.put(Upcoming3Title.getName(), Upcoming3Title);
+        
+        fields.put(Upcoming1Sched.getName(), Upcoming1Sched);
+        fields.put(Upcoming2Sched.getName(), Upcoming2Sched);
+        fields.put(Upcoming3Sched.getName(), Upcoming3Sched);
+        
+        fields.put(TodayIsWhat.getName(), TodayIsWhat);
+        fields.put(TaskingLevel.getName(), TaskingLevel);    
+        fields.put(TaskTodayCount.getName(), TaskTodayCount);
+        fields.put(AccomplishedTodayCount.getName(), AccomplishedTodayCount);
+        fields.put(RankTop.getName(), RankTop);
+        
+        return fields;
+    }
+=======
     private Add_window add_window;
     private ExtendWarning ExtendWindow;
     private EarnXP xp;
+>>>>>>> 735cd2e057cc02ce870c8dfebe015aba321ea47d
 }

@@ -481,7 +481,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
     }//GEN-LAST:event_NI18FocusGained
 
     private void CancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelButtonMouseClicked
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_CancelButtonMouseClicked
 
     private void CancelButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelButtonMouseEntered
