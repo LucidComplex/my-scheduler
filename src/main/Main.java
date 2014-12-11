@@ -1,9 +1,11 @@
 package main;
 
 
-import java.awt.Color;
 import java.io.IOException;
+import javax.swing.JFrame;
+import manager.NoteManager;
 import org.json.simple.parser.ParseException;
+import ui.MainWindow;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,9 +19,8 @@ import org.json.simple.parser.ParseException;
  */
 public class Main {
     public static void main(String[] args) throws IOException, ParseException, InstantiationException, IllegalAccessException, java.text.ParseException {
-        Color color = new Color(2,2,2);
-        String colorString = String.valueOf(color.getRGB());
-        System.out.println(colorString);
-        System.out.println(new Color(Integer.parseInt(colorString)));
+        NoteManager nm = new NoteManager();
+        JFrame main = new MainWindow();
+        main.setVisible(true);
     }
 }

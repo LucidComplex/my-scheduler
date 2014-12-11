@@ -67,36 +67,49 @@ public class Add_window extends javax.swing.JFrame implements UI {
         NI10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("Form"); // NOI18N
 
         NI13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI13.setText("Title:");
+        NI13.setName("NI13"); // NOI18N
 
         NI11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI11.setText("Description:");
+        NI11.setName("NI11"); // NOI18N
 
         NI4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI4.setText("DAY");
+        NI4.setName("NI4"); // NOI18N
 
         NI3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI3.setText("MONTH");
+        NI3.setName("NI3"); // NOI18N
 
         NI5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI5.setText("YEAR");
+        NI5.setName("NI5"); // NOI18N
 
         NI9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI9.setText("TIME:");
+        NI9.setName("NI9"); // NOI18N
+
+        DescriptionBoxScroll.setName("DescriptionBoxScroll"); // NOI18N
 
         DescriptionBox.setColumns(20);
         DescriptionBox.setRows(5);
+        DescriptionBox.setName("DescriptionBox"); // NOI18N
         DescriptionBoxScroll.setViewportView(DescriptionBox);
 
         TaskTitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TaskTitle.setName("TaskTitle"); // NOI18N
 
         NI14.setBackground(new java.awt.Color(153, 0, 102));
+        NI14.setName("NI14"); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Add new task");
+        jLabel1.setName("jLabel1"); // NOI18N
 
         javax.swing.GroupLayout NI14Layout = new javax.swing.GroupLayout(NI14);
         NI14.setLayout(NI14Layout);
@@ -118,6 +131,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
         SaveButton.setBackground(new java.awt.Color(204, 204, 204));
         SaveButton.setForeground(new java.awt.Color(204, 255, 204));
         SaveButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SaveButton.setName("SaveButton"); // NOI18N
         SaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SaveButtonMouseClicked(evt);
@@ -132,6 +146,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
 
         NI12.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         NI12.setText("Save");
+        NI12.setName("NI12"); // NOI18N
         NI12.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 NI12FocusGained(evt);
@@ -152,31 +167,64 @@ public class Add_window extends javax.swing.JFrame implements UI {
             .addComponent(NI12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
+        StartMonth.setName("StartMonth"); // NOI18N
+
+        StartDay.setName("StartDay"); // NOI18N
+
+        StartYear.setName("StartYear"); // NOI18N
+
+        StartHour.setName("StartHour"); // NOI18N
+
+        StartMeridian.setName("StartMeridian"); // NOI18N
+
         NI2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         NI2.setText("END");
+        NI2.setName("NI2"); // NOI18N
 
         NI1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         NI1.setText("START");
+        NI1.setName("NI1"); // NOI18N
 
         NI16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/arrow.png"))); // NOI18N
+        NI16.setName("NI16"); // NOI18N
+
+        StartMinutes.setName("StartMinutes"); // NOI18N
 
         NI15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI15.setText(":");
+        NI15.setName("NI15"); // NOI18N
 
         NI8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI8.setText("YEAR");
+        NI8.setName("NI8"); // NOI18N
 
         NI7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI7.setText("DAY");
+        NI7.setName("NI7"); // NOI18N
 
         NI6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI6.setText("MONTH");
+        NI6.setName("NI6"); // NOI18N
+
+        EndYear.setName("EndYear"); // NOI18N
+
+        EndDay.setName("EndDay"); // NOI18N
+
+        EndMonth.setName("EndMonth"); // NOI18N
+
+        EndHour.setName("EndHour"); // NOI18N
 
         NI17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI17.setText(":");
+        NI17.setName("NI17"); // NOI18N
+
+        EndMinutes.setName("EndMinutes"); // NOI18N
+
+        EndMeridian.setName("EndMeridian"); // NOI18N
 
         NI10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI10.setText("TIME:");
+        NI10.setName("NI10"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -286,19 +334,21 @@ public class Add_window extends javax.swing.JFrame implements UI {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(EndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(EndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(EndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(EndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(NI17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(StartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(StartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(StartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(StartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(StartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(7, 7, 7)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

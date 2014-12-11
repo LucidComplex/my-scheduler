@@ -7,6 +7,7 @@ package model;
 
 import base.JSONModel;
 import java.awt.Color;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -29,6 +30,7 @@ public class Note implements JSONModel {
     private Date begin;
     private Date reminder;
     private Color color;
+    private DateFormat df;
     
     public Note(){
         title = "";
@@ -36,6 +38,7 @@ public class Note implements JSONModel {
         deadline = Date.from(Instant.now());
         begin = Date.from(Instant.now());
         reminder = Date.from(Instant.now());
+        df = new SimpleDateFormat();
     }
     
     public Note(Map<String, String> keys){
@@ -44,6 +47,7 @@ public class Note implements JSONModel {
         deadline = new Date();
         begin = new Date();
         reminder = new Date();
+        df = new SimpleDateFormat();
     }
     
 //<editor-fold defaultstate="collapsed" desc="Accessors">
@@ -140,8 +144,14 @@ public class Note implements JSONModel {
         return json;
     }
     
+    /**
+     * Formats a Date into a String.
+     * 
+     * @param date the date to format.
+     * @return a String formatted Date.
+     */
     private String formatDate(Date date){
-        return new SimpleDateFormat().format(date);
+        return df.format(date);
     }
 
     /**
@@ -168,7 +178,7 @@ public class Note implements JSONModel {
      * @return a parsed Date
      */
     private Date parseDate(String dateString) throws ParseException{
-        return new SimpleDateFormat().parse(dateString);
+        return df.parse(dateString);
     }
     
     /**
