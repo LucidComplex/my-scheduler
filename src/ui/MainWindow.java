@@ -627,7 +627,8 @@ public class MainWindow extends javax.swing.JFrame {
         Description1.setName("Description1"); // NOI18N
         DescriptionBox1.setViewportView(Description1);
 
-        DeleteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
+        DeleteButton1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        DeleteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_icon.png"))); // NOI18N
         DeleteButton1.setText("  DELETE");
         DeleteButton1.setName("DeleteButton1"); // NOI18N
 
@@ -643,7 +644,8 @@ public class MainWindow extends javax.swing.JFrame {
         AccomplishedYesNo1.setText("No");
         AccomplishedYesNo1.setName("AccomplishedYesNo1"); // NOI18N
 
-        AccomplishButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check.png"))); // NOI18N
+        AccomplishButton1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        AccomplishButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check_icon.png"))); // NOI18N
         AccomplishButton1.setText("ACCOMPLISH");
         AccomplishButton1.setName("AccomplishButton1"); // NOI18N
 
@@ -768,11 +770,13 @@ public class MainWindow extends javax.swing.JFrame {
         NI17.setText("*select a task from the list to see details");
         NI17.setName("NI17"); // NOI18N
 
-        AccomplishButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check.png"))); // NOI18N
+        AccomplishButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        AccomplishButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check_icon.png"))); // NOI18N
         AccomplishButton2.setText("ACCOMPLISH");
         AccomplishButton2.setName("AccomplishButton2"); // NOI18N
 
-        DeleteButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
+        DeleteButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        DeleteButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_icon.png"))); // NOI18N
         DeleteButton2.setText("  DELETE");
         DeleteButton2.setName("DeleteButton2"); // NOI18N
 
@@ -899,7 +903,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(RunningTaskTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(AddButton)))
                 .addContainerGap())
