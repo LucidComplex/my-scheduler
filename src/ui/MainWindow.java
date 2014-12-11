@@ -126,7 +126,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         RankTop = new javax.swing.JLabel();
         NI24 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Form"); // NOI18N
 
         MainTitle.setBackground(new java.awt.Color(255, 255, 255));
@@ -623,8 +623,9 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         TaskList1.setBackground(new java.awt.Color(240, 240, 240));
         TaskList1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         TaskList1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        String[] strings = getTodaysTasks();
         TaskList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Task 1", "Task 2", "Task 3", "Task 4", "Task 5" };
+            strings;
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -999,7 +1000,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(RunningTaskTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+                            .addComponent(NI20, javax.swing.GroupLayout.PREFERRED_SIZE, 175, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NI24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1200,6 +1201,15 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         fields.put(RankTop.getName(), RankTop);
         
         return fields;
+    }
+    
+    /**
+     * Populates the Today's tasks table.
+     * 
+     * @return String array of table items
+     */
+    private String[] getTodaysTasks(){
+        // TODO
     }
     
 }
