@@ -167,10 +167,17 @@ public class Add_window extends javax.swing.JFrame implements UI {
             .addComponent(NI12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
+        StartMonth.setModel(new javax.swing.SpinnerListModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
         StartMonth.setName("StartMonth"); // NOI18N
+        StartMonth.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                StartMonthStateChanged(evt);
+            }
+        });
 
         StartDay.setName("StartDay"); // NOI18N
 
+        StartYear.setModel(new javax.swing.SpinnerListModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"}));
         StartYear.setName("StartYear"); // NOI18N
 
         StartHour.setName("StartHour"); // NOI18N
@@ -243,12 +250,6 @@ public class Add_window extends javax.swing.JFrame implements UI {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(NI1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(NI2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(NI3)
@@ -270,15 +271,6 @@ public class Add_window extends javax.swing.JFrame implements UI {
                                         .addComponent(StartMinutes)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(NI5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(NI6)
-                                .addGap(57, 57, 57)
-                                .addComponent(NI7)
-                                .addGap(48, 48, 48)
-                                .addComponent(NI8)
-                                .addGap(38, 38, 38))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(StartMeridian, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,9 +297,27 @@ public class Add_window extends javax.swing.JFrame implements UI {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(EndYear, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                                    .addComponent(EndMeridian)))))
+                                    .addComponent(EndMeridian)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(NI2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(NI5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(NI6)
+                                        .addGap(57, 57, 57)
+                                        .addComponent(NI7)))
+                                .addGap(48, 48, 48)
+                                .addComponent(NI8)
+                                .addGap(38, 38, 38))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(NI11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(NI1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NI11))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -395,6 +405,11 @@ public class Add_window extends javax.swing.JFrame implements UI {
     private void SaveButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseExited
         
     }//GEN-LAST:event_SaveButtonMouseExited
+
+    private void StartMonthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_StartMonthStateChanged
+
+
+    }//GEN-LAST:event_StartMonthStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
