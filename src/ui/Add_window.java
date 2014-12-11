@@ -65,6 +65,8 @@ public class Add_window extends javax.swing.JFrame implements UI {
         EndMinutes = new javax.swing.JSpinner();
         EndMeridian = new javax.swing.JSpinner();
         NI10 = new javax.swing.JLabel();
+        SaveButton1 = new javax.swing.JPanel();
+        NI18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Form"); // NOI18N
@@ -128,7 +130,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
                 .addContainerGap())
         );
 
-        SaveButton.setBackground(new java.awt.Color(204, 204, 204));
+        SaveButton.setBackground(new java.awt.Color(0, 102, 51));
         SaveButton.setForeground(new java.awt.Color(204, 255, 204));
         SaveButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SaveButton.setName("SaveButton"); // NOI18N
@@ -145,6 +147,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
         });
 
         NI12.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        NI12.setForeground(new java.awt.Color(255, 255, 255));
         NI12.setText("Save");
         NI12.setName("NI12"); // NOI18N
         NI12.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -180,8 +183,10 @@ public class Add_window extends javax.swing.JFrame implements UI {
         StartYear.setModel(new javax.swing.SpinnerListModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"}));
         StartYear.setName("StartYear"); // NOI18N
 
+        StartHour.setModel(new javax.swing.SpinnerListModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
         StartHour.setName("StartHour"); // NOI18N
 
+        StartMeridian.setModel(new javax.swing.SpinnerListModel(new String[] {"AM", "PM"}));
         StartMeridian.setName("StartMeridian"); // NOI18N
 
         NI2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -195,6 +200,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
         NI16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/arrow.png"))); // NOI18N
         NI16.setName("NI16"); // NOI18N
 
+        StartMinutes.setModel(new javax.swing.SpinnerListModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
         StartMinutes.setName("StartMinutes"); // NOI18N
 
         NI15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -217,21 +223,64 @@ public class Add_window extends javax.swing.JFrame implements UI {
 
         EndDay.setName("EndDay"); // NOI18N
 
+        EndMonth.setModel(new javax.swing.SpinnerListModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
         EndMonth.setName("EndMonth"); // NOI18N
 
+        EndHour.setModel(new javax.swing.SpinnerListModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
         EndHour.setName("EndHour"); // NOI18N
 
         NI17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI17.setText(":");
         NI17.setName("NI17"); // NOI18N
 
+        EndMinutes.setModel(new javax.swing.SpinnerListModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
         EndMinutes.setName("EndMinutes"); // NOI18N
 
+        EndMeridian.setModel(new javax.swing.SpinnerListModel(new String[] {"AM", "PM"}));
         EndMeridian.setName("EndMeridian"); // NOI18N
 
         NI10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI10.setText("TIME:");
         NI10.setName("NI10"); // NOI18N
+
+        SaveButton1.setBackground(new java.awt.Color(153, 153, 153));
+        SaveButton1.setForeground(new java.awt.Color(204, 255, 204));
+        SaveButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SaveButton1.setName("SaveButton1"); // NOI18N
+        SaveButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveButton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SaveButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SaveButton1MouseExited(evt);
+            }
+        });
+
+        NI18.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        NI18.setText("Cancel");
+        NI18.setName("NI18"); // NOI18N
+        NI18.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                NI18FocusGained(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SaveButton1Layout = new javax.swing.GroupLayout(SaveButton1);
+        SaveButton1.setLayout(SaveButton1Layout);
+        SaveButton1Layout.setHorizontalGroup(
+            SaveButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SaveButton1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(NI18)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        SaveButton1Layout.setVerticalGroup(
+            SaveButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(NI18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,6 +297,8 @@ public class Add_window extends javax.swing.JFrame implements UI {
                     .addComponent(DescriptionBoxScroll)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(SaveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,7 +434,9 @@ public class Add_window extends javax.swing.JFrame implements UI {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(DescriptionBoxScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SaveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -411,6 +464,22 @@ public class Add_window extends javax.swing.JFrame implements UI {
 
     }//GEN-LAST:event_StartMonthStateChanged
 
+    private void NI18FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NI18FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NI18FocusGained
+
+    private void SaveButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveButton1MouseClicked
+
+    private void SaveButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButton1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveButton1MouseEntered
+
+    private void SaveButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButton1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveButton1MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea DescriptionBox;
@@ -430,6 +499,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
     private javax.swing.JLabel NI15;
     private javax.swing.JLabel NI16;
     private javax.swing.JLabel NI17;
+    private javax.swing.JLabel NI18;
     private javax.swing.JLabel NI2;
     private javax.swing.JLabel NI3;
     private javax.swing.JLabel NI4;
@@ -439,6 +509,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
     private javax.swing.JLabel NI8;
     private javax.swing.JLabel NI9;
     private javax.swing.JPanel SaveButton;
+    private javax.swing.JPanel SaveButton1;
     private javax.swing.JSpinner StartDay;
     private javax.swing.JSpinner StartHour;
     private javax.swing.JSpinner StartMeridian;
