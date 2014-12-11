@@ -5,6 +5,7 @@
  */
 package ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -91,11 +92,13 @@ public class MainWindow extends javax.swing.JFrame {
         NI15 = new javax.swing.JLabel();
         AccomplishedYesNo2 = new javax.swing.JLabel();
         NI16 = new javax.swing.JLabel();
-        DescriptionBox2 = new javax.swing.JScrollPane();
-        Description2 = new javax.swing.JTextArea();
         NI17 = new javax.swing.JLabel();
         AccomplishButton2 = new javax.swing.JLabel();
         DeleteButton2 = new javax.swing.JLabel();
+        DescriptionBox2 = new javax.swing.JScrollPane();
+        Description2 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,7 +214,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(AccomplishedTodayCount, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NI4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         accomplishedTileLayout.setVerticalGroup(
             accomplishedTileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,11 +276,10 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(Tiles_ContainerLayout.createSequentialGroup()
                         .addComponent(levelTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(Tiles_ContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(accomplishedTile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(todayTile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(28, 28, 28)
+                .addGroup(Tiles_ContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(todayTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accomplishedTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         Tiles_ContainerLayout.setVerticalGroup(
             Tiles_ContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,11 +288,10 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(Tiles_ContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(todayTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(heyTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Tiles_ContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(accomplishedTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(levelTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(Tiles_ContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(accomplishedTile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(levelTile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         Upcoming1Panel.setBackground(new java.awt.Color(204, 204, 204));
@@ -513,7 +514,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(Upcoming_See_All_Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Upcoming_Container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         homeTabLayout.setVerticalGroup(
             homeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -611,8 +612,8 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(NI9)
                         .addGap(77, 77, 77)
                         .addComponent(TaskSched1))
-                    .addComponent(DescriptionBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(DescriptionBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         todayTabLayout.setVerticalGroup(
             todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -684,18 +685,18 @@ public class MainWindow extends javax.swing.JFrame {
         NI16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI16.setText("Description:");
 
-        Description2.setBackground(new java.awt.Color(240, 240, 240));
-        Description2.setColumns(20);
-        Description2.setRows(5);
-        Description2.setFocusable(false);
-        DescriptionBox2.setViewportView(Description2);
-
         NI17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI17.setText("*select a task from the list to see details");
 
         AccomplishButton2.setText("ACCOMPLISH");
 
         DeleteButton2.setText("  DELETE");
+
+        Description2.setBackground(new java.awt.Color(240, 240, 240));
+        Description2.setColumns(20);
+        Description2.setRows(5);
+        Description2.setFocusable(false);
+        DescriptionBox2.setViewportView(Description2);
 
         javax.swing.GroupLayout all_tasksTabLayout = new javax.swing.GroupLayout(all_tasksTab);
         all_tasksTab.setLayout(all_tasksTabLayout);
@@ -704,32 +705,37 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(all_tasksTabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TaskListBox, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
                 .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(all_tasksTabLayout.createSequentialGroup()
-                            .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(NI17)
-                                .addComponent(NI15)
-                                .addComponent(NI16))
-                            .addGap(74, 74, 74))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, all_tasksTabLayout.createSequentialGroup()
-                            .addComponent(NI14)
-                            .addGap(133, 133, 133)
-                            .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(AccomplishedYesNo2)
-                                .addComponent(TaskDuration2))))
-                    .addComponent(TaskTitle2)
                     .addGroup(all_tasksTabLayout.createSequentialGroup()
-                        .addComponent(AccomplishButton2)
-                        .addGap(29, 29, 29)
-                        .addComponent(DeleteButton2))
-                    .addGroup(all_tasksTabLayout.createSequentialGroup()
-                        .addComponent(NI13)
-                        .addGap(77, 77, 77)
-                        .addComponent(TaskSched2))
-                    .addComponent(DescriptionBox2, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(27, 27, 27)
+                        .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(all_tasksTabLayout.createSequentialGroup()
+                                    .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(NI17)
+                                        .addComponent(NI15)
+                                        .addComponent(NI16))
+                                    .addGap(74, 74, 74))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, all_tasksTabLayout.createSequentialGroup()
+                                    .addComponent(NI14)
+                                    .addGap(133, 133, 133)
+                                    .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(AccomplishedYesNo2)
+                                        .addComponent(TaskDuration2))))
+                            .addComponent(TaskTitle2)
+                            .addGroup(all_tasksTabLayout.createSequentialGroup()
+                                .addComponent(AccomplishButton2)
+                                .addGap(29, 29, 29)
+                                .addComponent(DeleteButton2))
+                            .addGroup(all_tasksTabLayout.createSequentialGroup()
+                                .addComponent(NI13)
+                                .addGap(77, 77, 77)
+                                .addComponent(TaskSched2)))
+                        .addContainerGap(84, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, all_tasksTabLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DescriptionBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         all_tasksTabLayout.setVerticalGroup(
             all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -766,6 +772,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainTab.addTab("  all tasks    ", all_tasksTab);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software_icon.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/plus3.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -773,20 +783,28 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainTab, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(mainTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
                 .addComponent(mainTab, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -796,6 +814,7 @@ public class MainWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_levelTileMouseClicked
 
+    
     private void NI7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NI7FocusGained
 
     }//GEN-LAST:event_NI7FocusGained
@@ -908,8 +927,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel all_tasksTab;
     private javax.swing.JPanel heyTile;
     private javax.swing.JPanel homeTab;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel levelTile;
     private javax.swing.JTabbedPane mainTab;
     private javax.swing.JPanel todayTab;
