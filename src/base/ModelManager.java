@@ -82,9 +82,9 @@ public abstract class ModelManager {
         return modelQueue.contains(m);
     }
     
-    public static List<JSONModel> toList(){
-        Iterator<JSONModel> i = modelQueue.iterator();
-        List<JSONModel> modelList = new LinkedList();
+    public static List toList(){
+        Iterator i = modelQueue.iterator();
+        List modelList = new LinkedList();
         
         while(i.hasNext()){
             modelList.add(i.next());
