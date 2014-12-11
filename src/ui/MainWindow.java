@@ -9,13 +9,14 @@ import base.UI;
 import commands.UpdateInterfaceCommand;
 import exceptions.CommandNotFoundException;
 import factory.CommandFactory;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 import manager.Executor;
+import manager.NoteManager;
 
 /**
  *
@@ -128,6 +129,21 @@ public class MainWindow extends javax.swing.JFrame implements UI {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Form"); // NOI18N
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         MainTitle.setBackground(new java.awt.Color(255, 255, 255));
         MainTitle.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
@@ -1083,6 +1099,20 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     private void AccomplishButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AccomplishButton2MouseClicked
         xp.setVisible(true);
     }//GEN-LAST:event_AccomplishButton2MouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    }//GEN-LAST:event_formWindowClosing
+
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+    }//GEN-LAST:event_formMouseMoved
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        try {
+            Executor.execute(UpdateInterfaceCommand.class);
+        } catch (CommandNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formFocusGained
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AccomplishButton1;

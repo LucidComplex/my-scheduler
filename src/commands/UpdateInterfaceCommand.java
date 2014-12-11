@@ -8,12 +8,12 @@ package commands;
 import base.Command;
 import base.UI;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import javax.swing.AbstractListModel;
 import javax.swing.JLabel;
-import javax.swing.JSpinner;
+import javax.swing.JList;
 import manager.GameElement;
 import manager.NoteManager;
 import model.Note;
@@ -37,6 +37,7 @@ public class UpdateInterfaceCommand extends Command {
         updateTaskTodayCount();
         updateExp();
         updateTodayCompleted();
+        updateTodaysTaskTable();
     }
     
     /**
@@ -122,7 +123,53 @@ public class UpdateInterfaceCommand extends Command {
         }
     }
     
+    private void updateTodaysTaskTable(){
+        JList list = (JList) fields.get("TaskList1");
+        List<Note> todaysNotes = getTodaysTaskList();
+        
+        list.setModel(
+            new AbstractListModel<Note>(){
+                public int getSize(){
+                    return todaysNotes.size();
+                }
+
+                @Override
+                public Note getElementAt(int index) {
+                    return todaysNotes.get(index);
+                }
+            }
+        );
+        
+        
+    }
+    
     //<editor-fold defaultstate="collapsed" desc="Helper methods">
+    
+    private List<Note> getTodaysTaskList(){
+        List<Note> todaysNotes = NoteManager.toList();
+        Calendar now = Calendar.getInstance();
+        Calendar completionDate = Calendar.getInstance();
+        int todayDate = now.get(Calendar.DATE);
+        int todayMonth = now.get(Calendar.MONTH);
+        int todayYear = now.get(Calendar.YEAR);
+        int taskDate;
+        int taskMonth;
+        int taskYear;
+        
+        Iterator<Note> i = todaysNotes.iterator();
+        while(i.hasNext()){
+            Note n = i.next();
+            completionDate.setTime(n.getCompletionDate());
+            taskDate = completionDate.get(Calendar.DATE);
+            taskMonth = completionDate.get(Calendar.MONTH);
+            taskYear = completionDate.get(Calendar.YEAR);
+            
+            if(!(todayDate==taskDate && todayMonth==taskMonth && todayYear==taskYear))
+                i.remove();
+        }
+        
+        return todaysNotes;
+    }
     
     private String intToDayOfWeek(int day){
         switch(day){

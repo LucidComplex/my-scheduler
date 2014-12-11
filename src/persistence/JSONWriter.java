@@ -20,14 +20,15 @@ public class JSONWriter {
     private static BufferedWriter file;
     
     public static void setFile(File file) throws IOException{
-        JSONWriter.file = new BufferedWriter(new FileWriter(file, true));
+        JSONWriter.file = new BufferedWriter(new FileWriter(file));
     }
     
     public static void writeModels(AbstractQueue<JSONModel> modelList) throws IOException{
         for(JSONModel m : modelList){
             file.write(m.toJSON().toString());
             file.newLine();
+            file.flush();
         }
-        file.flush();
+        file.close();
     }
 }

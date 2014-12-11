@@ -22,7 +22,7 @@ import org.json.simple.JSONObject;
  * 
  * @author tan
  */
-public class Note implements JSONModel {
+public class Note implements JSONModel, Comparable {
     
     private String title;
     private String body;
@@ -228,4 +228,19 @@ public class Note implements JSONModel {
         return now.after(begin) && now.before(deadline);
     }
 
+    @Override
+    public String toString(){
+        return title;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Note o2 = (Note) o;
+        if(this.deadline.before(o2.deadline))
+            return -1;
+        if(this.deadline.after(o2.deadline))
+            return 1;
+        return 0;
+        
+    }
 }

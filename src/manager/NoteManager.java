@@ -11,10 +11,10 @@ import exceptions.NotReadyException;
 import factory.JSONModelFactory;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import model.Note;
+import org.json.simple.parser.ParseException;
 import persistence.JSONReader;
 import persistence.JSONWriter;
 
@@ -35,12 +35,13 @@ public final class NoteManager extends ModelManager {
      * @param filepath the filename to save the notes.
      * @throws IOException 
      */
-    public static void initManager(String filepath) throws IOException{
+    public static void initManager(String filepath) throws IOException, ParseException, InstantiationException, IllegalAccessException{
         saveFile = filepath;
         modelQueue = new PriorityQueue(11, new NoteComparator());
         file = new File(filepath);
-        JSONWriter.setFile(file);
         JSONReader.setFile(file);
+        NoteManager.loadModels();
+        JSONWriter.setFile(file);
         ready = true;
     }
     

@@ -21,7 +21,6 @@ import ui.MainWindow;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException, InstantiationException, IllegalAccessException, java.text.ParseException, CommandNotFoundException {;
         NoteManager.initManager("notes.json");
-        NoteManager.loadModels();
         JFrame main = new MainWindow();
         main.setVisible(true);
     }
