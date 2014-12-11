@@ -26,19 +26,16 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="mainTab" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="mainTab" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="MainTitle" min="-2" pref="330" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -867,7 +864,7 @@
                               <Component id="DescriptionBox1" min="-2" pref="91" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="NI8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="48" max="32767" attributes="0"/>
+                              <EmptySpace pref="22" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="DeleteButton1" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="AccomplishButton1" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -980,6 +977,9 @@
             </Container>
             <Component class="javax.swing.JLabel" name="DeleteButton1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icons/delete.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  DELETE"/>
               </Properties>
             </Component>
@@ -1009,6 +1009,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="AccomplishButton1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icons/check.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="ACCOMPLISH"/>
               </Properties>
             </Component>
@@ -1102,7 +1105,7 @@
                               <Component id="DescriptionBox2" min="-2" pref="91" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="NI17" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="48" max="32767" attributes="0"/>
+                              <EmptySpace pref="22" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="DeleteButton2" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="AccomplishButton2" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -1220,11 +1223,17 @@
             </Component>
             <Component class="javax.swing.JLabel" name="AccomplishButton2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icons/check.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="ACCOMPLISH"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="DeleteButton2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icons/delete.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  DELETE"/>
               </Properties>
             </Component>
@@ -1254,14 +1263,14 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/software_icon.png"/>
+          <Image iconType="3" name="/icons/software_icon.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/ui/plus3.png"/>
+          <Image iconType="3" name="/icons/plus3.png"/>
         </Property>
       </Properties>
     </Component>
