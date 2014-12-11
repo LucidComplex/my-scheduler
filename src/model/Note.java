@@ -7,8 +7,7 @@ package model;
 
 import base.JSONModel;
 import java.time.Instant;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import java.util.Map;
 import org.json.simple.JSONObject;
 
@@ -21,19 +20,22 @@ public class Note implements JSONModel {
     
     private String title;
     private String body;
-    private Calendar deadline;
-    private Calendar begin;
+    private Date deadline;
+    private Date begin;
+    private JSONObject json;
     
     public Note(){
         title = "";
         body = "";
+        deadline = Date.from(Instant.now());
+        begin = Date.from(Instant.now());
     }
     
     public Note(Map<String, String> keys){
         title = keys.get("title");
         body = keys.get("body");
-        deadline = new GregorianCalendar();
-        begin = new GregorianCalendar();
+        deadline = new Date();
+        begin = new Date();
     }
     
 //<editor-fold defaultstate="collapsed" desc="Accessors">
@@ -73,28 +75,28 @@ public class Note implements JSONModel {
     /**
      * @return the begin
      */
-    public Calendar getBegin() {
+    public Date getBegin() {
         return begin;
     }
     
     /**
      * @param begin the begin to set
      */
-    public void setBegin(Calendar begin) {
+    public void setBegin(Date begin) {
         this.begin = begin;
     }
     
         /**
      * @return the deadline
      */
-    public Calendar getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
 
     /**
      * @param deadline the deadline to set
      */
-    public void setDeadline(Calendar deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
     
@@ -106,13 +108,6 @@ public class Note implements JSONModel {
      */
     @Override
     public JSONObject toJSON() {
-        JSONObject json = new JSONObject();
-        
-        json.put("title", title);
-        json.put("body", body);
-        json.put("deadline", getDeadline().toString());
-        json.put("begin", begin.toString());
-        
         return json;
     }
 
@@ -122,10 +117,11 @@ public class Note implements JSONModel {
      */
     @Override
     public void fromJSON(JSONObject json) {
+        this.json = json;
         title = (String) json.get("title");
         body = (String) json.get("body");
-        deadline = new GregorianCalendar();
-        begin = new GregorianCalendar();
+        deadline = new Date();
+        begin = new Date();
     }
     
     /**
@@ -133,8 +129,8 @@ public class Note implements JSONModel {
      * @return returns true if Note is still in deadline range.
      */
     public boolean isActive(){
-        return Calendar.getInstance().after(begin) &&
-                Calendar.getInstance().before(deadline);
+        Date now = new Date();
+        return now.after(begin) && now.before(deadline);
     }
 
 }
