@@ -6,12 +6,14 @@
 package manager;
 
 import base.ModelManager;
+import base.NoteComparator;
 import exceptions.NotReadyException;
 import factory.JSONModelFactory;
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.AbstractQueue;
 import java.util.Map;
+import java.util.PriorityQueue;
 import model.Note;
 import persistence.JSONReader;
 import persistence.JSONWriter;
@@ -22,7 +24,11 @@ import persistence.JSONWriter;
  */
 public final class NoteManager extends ModelManager {    
     private static boolean ready = false;
-
+    
+    public static Note getNextNote(){
+        return (Note) modelQueue.peek();
+    }
+    
     /**
      * Initializes the manager.
      * 
@@ -31,25 +37,11 @@ public final class NoteManager extends ModelManager {
      */
     public static void initManager(String filepath) throws IOException{
         saveFile = filepath;
-        modelList = new LinkedList();
+        modelQueue = new PriorityQueue(11, new NoteComparator());
         file = new File(filepath);
         JSONWriter.setFile(file);
         JSONReader.setFile(file);
         ready = true;
-    }
-    
-    /**
-     * Sorts notes by deadline.
-     * 
-     * Closest deadline first.
-     * 
-     */
-    public static void sortByDeadline() throws NotReadyException{ 
-        if(!ready)
-            throwException();
-        throw new UnsupportedOperationException(
-                "Implement " + NoteManager.class.getName() + "#sortByDeadline()."
-        );
     }
     
     /**

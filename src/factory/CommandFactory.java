@@ -7,7 +7,7 @@ package factory;
 
 import base.Command;
 import base.UI;
-import commands.AddNoteCommand;
+import commands.*;
 
 /**
  *
@@ -22,5 +22,9 @@ public abstract class CommandFactory {
      */
     public static Command createAddNoteCommand(UI ui){
         return new AddNoteCommand(ui);
+    }
+    
+    public static Command createUpdateInterfaceCommand(UI ui){
+        return new UpdateInterfaceCommand(ui);
     }
 }

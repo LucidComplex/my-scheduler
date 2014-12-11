@@ -6,13 +6,13 @@
 package persistence;
 
 import base.JSONModel;
-import java.util.List;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.AbstractQueue;
+import java.util.PriorityQueue;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -41,8 +41,8 @@ public class JSONReader {
      * @throws java.io.IOException
      * @throws org.json.simple.parser.ParseException
      */
-    public static List<JSONModel> getModelList(Class c) throws IOException, ParseException, InstantiationException, IllegalAccessException{
-        List<JSONModel> modelList = new LinkedList();
+    public static AbstractQueue<JSONModel> getModels(Class c) throws IOException, ParseException, InstantiationException, IllegalAccessException{
+        AbstractQueue<JSONModel> modelQueue = new PriorityQueue();
         JSONModel model;
         JSONParser parser = new JSONParser();
         
@@ -51,10 +51,10 @@ public class JSONReader {
             model = (JSONModel) c.newInstance();
             JSONObject jsonObject = (JSONObject) parser.parse(json);
             model.fromJSON(jsonObject);
-            modelList.add(model);
+            modelQueue.add(model);
             json = file.readLine();
         }
         
-        return modelList;
+        return modelQueue;
     }
 }

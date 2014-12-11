@@ -10,7 +10,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
+import java.util.AbstractQueue;
 
 /**
  *
@@ -23,7 +23,7 @@ public class JSONWriter {
         JSONWriter.file = new BufferedWriter(new FileWriter(file, true));
     }
     
-    public static void writeModelList(List<JSONModel> modelList) throws IOException{
+    public static void writeModels(AbstractQueue<JSONModel> modelList) throws IOException{
         for(JSONModel m : modelList){
             file.write(m.toJSON().toString());
             file.newLine();

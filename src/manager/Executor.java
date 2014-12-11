@@ -18,6 +18,11 @@ import java.util.Map;
 public abstract class Executor {
     private static Map<Class, Command> commands = new HashMap();
     
+    /**
+     * Puts a command into the Executor
+     * @param aClass the Class of the command
+     * @param command  the actual Command object
+     */
     public static void put(Class aClass, Command command){
         commands.put(aClass, command);
     }

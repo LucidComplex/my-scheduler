@@ -6,9 +6,13 @@
 package ui;
 
 import base.UI;
+import commands.UpdateInterfaceCommand;
+import exceptions.CommandNotFoundException;
+import factory.CommandFactory;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
+import manager.Executor;
 
 /**
  *
@@ -19,9 +23,11 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     /**
      * Creates new form MainWindow
      */
-    public MainWindow() throws InstantiationException, IllegalAccessException {
+    public MainWindow() throws InstantiationException, IllegalAccessException, CommandNotFoundException {
         initComponents();
+        Executor.put(UpdateInterfaceCommand.class, CommandFactory.createUpdateInterfaceCommand(this));
         add_window = new Add_window();
+        Executor.execute(UpdateInterfaceCommand.class);
     }
 
     /**
