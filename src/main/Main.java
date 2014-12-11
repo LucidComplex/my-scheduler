@@ -1,6 +1,7 @@
 package main;
 
 
+import exceptions.CommandNotFoundException;
 import java.io.IOException;
 import javax.swing.JFrame;
 import manager.NoteManager;
@@ -18,8 +19,9 @@ import ui.MainWindow;
  * @author tan
  */
 public class Main {
-    public static void main(String[] args) throws IOException, ParseException, InstantiationException, IllegalAccessException, java.text.ParseException {;
+    public static void main(String[] args) throws IOException, ParseException, InstantiationException, IllegalAccessException, java.text.ParseException, CommandNotFoundException {;
         NoteManager.initManager("notes.json");
+        NoteManager.loadModels();
         JFrame main = new MainWindow();
         main.setVisible(true);
     }

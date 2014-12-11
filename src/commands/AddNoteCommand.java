@@ -61,15 +61,29 @@ public class AddNoteCommand extends Command {
     }
     
     private Date getStartDate(Map fields){
-        int[] times = new int[5];
+        int[] times = new int[6];
         
         times[0] = (int) ((JSpinner) fields.get("StartDay")).getValue();
         times[1] = parseMonth((String) ((JSpinner) fields.get("StartMonth")).getValue());
         times[2] = (int) ((JSpinner) fields.get("StartYear")).getValue();
         times[3] = (int) ((JSpinner) fields.get("StartHour")).getValue();
         times[4] = (int) ((JSpinner) fields.get("StartMinutes")).getValue();
+        times[5] = parseMeridian((String) ((JSpinner) fields.get("StartMeridian")).getValue());
         
         return makeCalendar(times).getTime();
+    }
+    
+    private int parseMeridian(String meridian){
+        int value = -1;
+        switch(meridian){
+            case "AM":
+                value = 0;
+                break;
+            case "PM":
+                value = 1;
+                break;
+        }
+        return value;
     }
     
     private int parseMonth(String month){
@@ -117,13 +131,14 @@ public class AddNoteCommand extends Command {
     }
     
     private Date getEndDate(Map fields){
-        int[] times = new int[5];
+        int[] times = new int[6];
         
         times[0] = (int) ((JSpinner) fields.get("EndDay")).getValue();
         times[1] = parseMonth((String) ((JSpinner) fields.get("StartMonth")).getValue());
         times[2] = (int) ((JSpinner) fields.get("EndYear")).getValue();
         times[3] = (int) ((JSpinner) fields.get("EndHour")).getValue();
         times[4] = (int) ((JSpinner) fields.get("EndMinutes")).getValue();
+        times[5] = parseMeridian((String) ((JSpinner) fields.get("EndMeridian")).getValue());
         
         return makeCalendar(times).getTime();
     }
@@ -136,6 +151,7 @@ public class AddNoteCommand extends Command {
         cal.set(Calendar.YEAR, times[2]);
         cal.set(Calendar.HOUR, times[3]);
         cal.set(Calendar.MINUTE, times[4]);
+        cal.set(Calendar.AM_PM, times[5]);
         
         return cal;
     }

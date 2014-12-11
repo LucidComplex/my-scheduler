@@ -889,9 +889,11 @@ public class MainWindow extends javax.swing.JFrame implements UI {
 
         NI20.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         NI20.setText("Currently Running Task:");
+        NI20.setName("NI20"); // NOI18N
 
         RunningTaskTitle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         RunningTaskTitle.setText("Study CMSC 57");
+        RunningTaskTitle.setName("RunningTaskTitle"); // NOI18N
 
         NI21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/running.png"))); // NOI18N
         NI21.setName("NI21"); // NOI18N
@@ -927,7 +929,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(RunningTaskTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+                            .addComponent(NI20, javax.swing.GroupLayout.PREFERRED_SIZE, 175, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NI24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
