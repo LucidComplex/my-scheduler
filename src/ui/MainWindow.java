@@ -568,6 +568,7 @@ public class MainWindow extends javax.swing.JFrame {
         Description1.setFocusable(false);
         DescriptionBox1.setViewportView(Description1);
 
+        DeleteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
         DeleteButton1.setText("  DELETE");
 
         TaskSched1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -579,6 +580,7 @@ public class MainWindow extends javax.swing.JFrame {
         AccomplishedYesNo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AccomplishedYesNo1.setText("No");
 
+        AccomplishButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check.png"))); // NOI18N
         AccomplishButton1.setText("ACCOMPLISH");
 
         javax.swing.GroupLayout todayTabLayout = new javax.swing.GroupLayout(todayTab);
@@ -640,7 +642,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(DescriptionBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(NI8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DeleteButton1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(AccomplishButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -688,8 +690,10 @@ public class MainWindow extends javax.swing.JFrame {
         NI17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI17.setText("*select a task from the list to see details");
 
+        AccomplishButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check.png"))); // NOI18N
         AccomplishButton2.setText("ACCOMPLISH");
 
+        DeleteButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
         DeleteButton2.setText("  DELETE");
 
         Description2.setBackground(new java.awt.Color(240, 240, 240));
@@ -762,7 +766,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(DescriptionBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(NI17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DeleteButton2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(AccomplishButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -772,9 +776,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainTab.addTab("  all tasks    ", all_tasksTab);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software_icon.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/software_icon.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/plus3.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/plus3.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -783,16 +787,14 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(mainTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(mainTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(134, 134, 134)
                         .addComponent(jLabel2)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
