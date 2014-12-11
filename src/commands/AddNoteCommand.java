@@ -64,7 +64,7 @@ public class AddNoteCommand extends Command {
         int[] times = new int[5];
         
         times[0] = (int) ((JSpinner) fields.get("StartDay")).getValue();
-        times[1] = (int) ((JSpinner) fields.get("StartMonth")).getValue();
+        times[1] = parseMonth((String) ((JSpinner) fields.get("StartMonth")).getValue());
         times[2] = (int) ((JSpinner) fields.get("StartYear")).getValue();
         times[3] = (int) ((JSpinner) fields.get("StartHour")).getValue();
         times[4] = (int) ((JSpinner) fields.get("StartMinutes")).getValue();
@@ -72,11 +72,55 @@ public class AddNoteCommand extends Command {
         return makeCalendar(times).getTime();
     }
     
+    private int parseMonth(String month){
+        int monthValue = -1;
+        switch(month){
+            case "January":
+                monthValue = 0;
+                break;
+            case "February":
+                monthValue = 1;
+                break;
+            case "March":
+                monthValue = 2;
+                break;
+            case "April":
+                monthValue = 3;
+                break;
+            case "May":
+                monthValue = 4;
+                break;
+            case "June":
+                monthValue = 5;
+                break;
+            case "July":
+                monthValue = 6;
+                break;
+            case "August":
+                monthValue = 7;
+                break;
+            case "September":
+                monthValue = 8;
+                break;
+            case "October":
+                monthValue = 9;
+                break;
+            case "November":
+                monthValue = 10;
+                break;
+            case "December":
+                monthValue = 11;
+                break;
+        }
+        
+        return monthValue;
+    }
+    
     private Date getEndDate(Map fields){
         int[] times = new int[5];
         
         times[0] = (int) ((JSpinner) fields.get("EndDay")).getValue();
-        times[1] = (int) ((JSpinner) fields.get("EndMonth")).getValue();
+        times[1] = parseMonth((String) ((JSpinner) fields.get("StartMonth")).getValue());
         times[2] = (int) ((JSpinner) fields.get("EndYear")).getValue();
         times[3] = (int) ((JSpinner) fields.get("EndHour")).getValue();
         times[4] = (int) ((JSpinner) fields.get("EndMinutes")).getValue();
