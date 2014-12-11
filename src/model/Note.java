@@ -7,9 +7,7 @@ package model;
 
 import base.JSONModel;
 import java.time.Instant;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Map;
 import org.json.simple.JSONObject;
 
@@ -24,6 +22,7 @@ public class Note implements JSONModel {
     private String body;
     private Date deadline;
     private Date begin;
+    private JSONObject json;
     
     public Note(){
         title = "";
@@ -109,13 +108,6 @@ public class Note implements JSONModel {
      */
     @Override
     public JSONObject toJSON() {
-        JSONObject json = new JSONObject();
-        
-        json.put("title", title);
-        json.put("body", body);
-        json.put("deadline", deadline.toString());
-        json.put("begin", begin.toString());
-        
         return json;
     }
 
@@ -125,6 +117,7 @@ public class Note implements JSONModel {
      */
     @Override
     public void fromJSON(JSONObject json) {
+        this.json = json;
         title = (String) json.get("title");
         body = (String) json.get("body");
         deadline = new Date();
@@ -137,8 +130,7 @@ public class Note implements JSONModel {
      */
     public boolean isActive(){
         Date now = new Date();
-        return now.after(begin) &&
-                now.before(deadline);
+        return now.after(begin) && now.before(deadline);
     }
 
 }
