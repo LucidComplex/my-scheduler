@@ -6,9 +6,13 @@
 package commands;
 
 import base.Command;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import base.UI;
+import factory.JSONModelFactory;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.JTextComponent;
+import model.Note;
 
 /**
  * A command that creates a note, gets input from the UI, and adds it into the
@@ -16,30 +20,27 @@ import java.util.List;
  * 
  * @author tan
  */
-public class AddNoteCommand implements Command {
+public class AddNoteCommand extends Command {
 
-    @Override
-    public void execute() {
-        
-        
+    public AddNoteCommand(UI ui){
+        this.ui = ui;
     }
     
-    /**
-     * Extracts values from a Calendar.
-     * Values are stored month first, then second, then third.
-     * 
-     * @param calendar
-     * @return a List of integers containing the month in the first index,
-     * date in the second, and the year in the third.
-     */
-    private List<Integer> extractValues(Calendar calendar){
-        List<Integer> calendarValues = new ArrayList<>();
+    @Override
+    public void execute() {
+        Map fields = ui.getFields();
+        Note note = null;
+        JTextComponent taskTitle = (JTextComponent) fields.get("TaskTitle");
+        JTextComponent descriptionBox = (JTextComponent) fields.get("DescriptionBox");
         
-        calendarValues.add(calendar.get(Calendar.MONTH));
-        calendarValues.add(calendar.get(Calendar.DAY_OF_MONTH));
-        calendarValues.add(calendar.get(Calendar.YEAR));
+        try {
+            note = (Note) JSONModelFactory.create(Note.class);
+        } catch (InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(AddNoteCommand.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        return calendarValues;
+        note.setTitle(taskTitle.getText());
+        note.setBody(descriptionBox.getText());
     }
     
 }

@@ -10,11 +10,12 @@ package base;
  * 
  * @author tan
  */
-public interface Command {
+public abstract class Command {
+    protected UI ui;
     
     /**
      * Executes the command
      */
-    public void execute();
+    public abstract void execute();
     
 }

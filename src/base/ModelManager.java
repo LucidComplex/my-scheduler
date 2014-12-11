@@ -21,9 +21,9 @@ import org.json.simple.parser.ParseException;
  * @author tan
  */
 public abstract class ModelManager {
-    protected List<JSONModel> modelList;
-    protected String saveFile;
-    protected File file;
+    protected static List<JSONModel> modelList;
+    protected static String saveFile;
+    protected static File file;
     
     /**
      * Manages a model.
@@ -32,7 +32,7 @@ public abstract class ModelManager {
      * 
      * @see List#add(java.lang.Object) 
      */
-    public void manage(JSONModel model){
+    public static void manage(JSONModel model){
         modelList.add(model); // can be improved, implement a list/pq?
     }
     
@@ -45,7 +45,7 @@ public abstract class ModelManager {
      * 
      * @see List#remove(java.lang.Object) 
      */
-    public boolean removeModel(JSONModel model){
+    public static boolean removeModel(JSONModel model){
         return modelList.remove(model);
     }
     
@@ -54,7 +54,7 @@ public abstract class ModelManager {
      * 
      * @throws IOException 
      */
-    public void saveModels() throws IOException{
+    public static void saveModels() throws IOException{
         JSONWriter.writeModelList(modelList);
     }
     
@@ -66,7 +66,7 @@ public abstract class ModelManager {
      * @throws InstantiationException
      * @throws IllegalAccessException 
      */
-    public void loadModels() throws IOException, ParseException, InstantiationException, IllegalAccessException{
+    public static void loadModels() throws IOException, ParseException, InstantiationException, IllegalAccessException{
         modelList = JSONReader.getModelList(Note.class);
     }
     
@@ -77,11 +77,11 @@ public abstract class ModelManager {
      * 
      * @see List#contains(java.lang.Object) 
      */
-    public boolean manages(JSONModel m){
+    public static boolean manages(JSONModel m){
         return modelList.contains(m);
     }
     
-    public JSONModel getModel(int index){
+    public static JSONModel getModel(int index){
         return modelList.get(index);
     }
     

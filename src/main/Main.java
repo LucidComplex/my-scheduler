@@ -18,8 +18,7 @@ import ui.MainWindow;
  * @author tan
  */
 public class Main {
-    public static void main(String[] args) throws IOException, ParseException, InstantiationException, IllegalAccessException, java.text.ParseException {
-        NoteManager nm = new NoteManager();
+    public static void main(String[] args) throws IOException, ParseException, InstantiationException, IllegalAccessException, java.text.ParseException {;
         JFrame main = new MainWindow();
         main.setVisible(true);
     }

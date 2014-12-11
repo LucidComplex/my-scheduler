@@ -19,18 +19,22 @@ import persistence.JSONWriter;
  *
  * @author tan
  */
-public class NoteManager extends ModelManager {
-    
-    public NoteManager(String filepath) throws IOException{
-        this();
+public final class NoteManager extends ModelManager {    
+    private static boolean ready = false;
+
+    /**
+     * Initializes the manager.
+     * 
+     * @param filepath the filename to save the notes.
+     * @throws IOException 
+     */
+    public static void initManager(String filepath) throws IOException{
         saveFile = filepath;
+        modelList = new LinkedList();
         file = new File(filepath);
         JSONWriter.setFile(file);
         JSONReader.setFile(file);
-    }
-    
-    public NoteManager(){
-        modelList = new LinkedList<>();
+        ready = true;
     }
     
     /**
@@ -39,9 +43,11 @@ public class NoteManager extends ModelManager {
      * Closest deadline first.
      * 
      */
-    public void sortByDeadline(){ 
+    public static void sortByDeadline() throws NotReadyException{ 
+        if(!ready)
+            throwException();
         throw new UnsupportedOperationException(
-                "Implement " + this.getClass().getName() + "#sortByDeadline()."
+                "Implement " + NoteManager.class.getName() + "#sortByDeadline()."
         );
     }
     
@@ -52,15 +58,29 @@ public class NoteManager extends ModelManager {
      * 
      * @see factory.ModelFactory#createNote(java.util.Map) 
      */
-    public void createNote(Map args) throws InstantiationException, IllegalAccessException{
+    public static void createNote(Map args) throws InstantiationException, IllegalAccessException, NotReadyException{
+        if(!ready)
+            throwException();
         Note note = (Note) JSONModelFactory.create(Note.class);
-        super.manage(note);
+        ModelManager.manage(note);
     }
     
-    public void searchNoteByTitle(String title){
+    public static void searchNoteByTitle(String title) throws NotReadyException{
+        if(!ready)
+            throwException();
         throw new UnsupportedOperationException(
-                "Implement " + this.getClass().getName() +
+                "Implement " + NoteManager.class.getName() +
                 "#searchNoteByTitle(java.util.String)."
         );
+    }
+    
+    private static void throwException() throws NotReadyException{
+        throw new NotReadyException("Initialize the Manager first.");
+    }
+}
+
+class NotReadyException extends Exception {
+    public NotReadyException(String msg){
+        System.out.println(msg);
     }
 }
