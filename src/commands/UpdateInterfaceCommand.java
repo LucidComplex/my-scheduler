@@ -38,6 +38,7 @@ public class UpdateInterfaceCommand extends Command {
         updateExp();
         updateTodayCompleted();
         updateTodaysTaskTable();
+        updateTaskLevel();
     }
     
     /**
@@ -60,6 +61,30 @@ public class UpdateInterfaceCommand extends Command {
         StringBuilder builder = new StringBuilder("Today is ");
         builder.append(intToDayOfWeek(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)));
         todayIsWhat.setText(builder.toString());
+    }
+    
+    private void updateTaskLevel(){
+        JLabel taskLevel = (JLabel) fields.get("TaskingLevel");
+        JLabel rank = (JLabel) fields.get("RankTop");
+        int level = GameElement.getLevel();
+        taskLevel.setText(intToTaskingLevel(level));
+        rank.setText(intToTaskingLevel(level));
+    }
+    
+    private String intToTaskingLevel(int level){
+        switch(level){
+            case 1:
+                return "Slow Poke";
+            case 2:
+                return "Procastinator";
+            case 3:
+                return "Clock Work";
+            case 4:
+                return "Over-Achiever";
+            case 5:
+                return "GodLike";
+        }
+        return "Beyond GodLike";
     }
     
     /**
