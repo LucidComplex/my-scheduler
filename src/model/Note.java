@@ -6,9 +6,14 @@
 package model;
 
 import base.JSONModel;
+import java.awt.Color;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.json.simple.JSONObject;
 
 /**
@@ -22,13 +27,15 @@ public class Note implements JSONModel {
     private String body;
     private Date deadline;
     private Date begin;
-    private JSONObject json;
+    private Date reminder;
+    private Color color;
     
     public Note(){
         title = "";
         body = "";
         deadline = Date.from(Instant.now());
         begin = Date.from(Instant.now());
+        reminder = Date.from(Instant.now());
     }
     
     public Note(Map<String, String> keys){
@@ -36,6 +43,7 @@ public class Note implements JSONModel {
         body = keys.get("body");
         deadline = new Date();
         begin = new Date();
+        reminder = new Date();
     }
     
 //<editor-fold defaultstate="collapsed" desc="Accessors">
@@ -86,7 +94,7 @@ public class Note implements JSONModel {
         this.begin = begin;
     }
     
-        /**
+    /**
      * @return the deadline
      */
     public Date getDeadline() {
@@ -100,6 +108,20 @@ public class Note implements JSONModel {
         this.deadline = deadline;
     }
     
+    /**
+     * @param reminder the reminder to set
+     */
+    public void setReminder(Date reminder){
+        this.reminder = reminder;
+    }
+    
+    /**
+     * @return the reminder
+     */
+    public Date getReminder(){
+        return reminder;
+    }
+    
 //</editor-fold>
     
     /**
@@ -108,7 +130,18 @@ public class Note implements JSONModel {
      */
     @Override
     public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("body", body);
+        json.put("deadline", formatDate(deadline));
+        json.put("begin", formatDate(begin));
+        json.put("reminder", formatDate(reminder));
+        json.put("color", String.valueOf(color.getRGB()));
         return json;
+    }
+    
+    private String formatDate(Date date){
+        return new SimpleDateFormat().format(date);
     }
 
     /**
@@ -117,11 +150,25 @@ public class Note implements JSONModel {
      */
     @Override
     public void fromJSON(JSONObject json) {
-        this.json = json;
-        title = (String) json.get("title");
-        body = (String) json.get("body");
-        deadline = new Date();
-        begin = new Date();
+        try {
+            title = (String) json.get("title");
+            body = (String) json.get("body");
+            deadline = parseDate((String) json.get("deadline"));
+            begin = parseDate((String) json.get("begin"));
+            reminder = parseDate((String) json.get("reminder"));
+            color = new Color(Integer.parseInt((String) json.get("color")));
+        } catch (ParseException ex) {
+            Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * 
+     * @param date the date in String to parse
+     * @return a parsed Date
+     */
+    private Date parseDate(String dateString) throws ParseException{
+        return new SimpleDateFormat().parse(dateString);
     }
     
     /**
