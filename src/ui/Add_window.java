@@ -6,9 +6,14 @@
 package ui;
 
 import base.UI;
+import commands.AddNoteCommand;
+import exceptions.CommandNotFoundException;
+import factory.CommandFactory;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JFrame;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import manager.EventManager;
 
 /**
  *
@@ -19,8 +24,9 @@ public class Add_window extends javax.swing.JFrame implements UI {
     /**
      * Creates new form Add_window
      */
-    public Add_window() {
+    public Add_window() throws InstantiationException, IllegalAccessException {
         initComponents();
+        EventManager.put(AddNoteCommand.class, CommandFactory.createAddNoteCommand(this));
     }
 
     /**
@@ -448,7 +454,11 @@ public class Add_window extends javax.swing.JFrame implements UI {
     }//GEN-LAST:event_NI12FocusGained
 
     private void SaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseClicked
-
+        try {
+            EventManager.execute(AddNoteCommand.class);
+        } catch (CommandNotFoundException ex) {
+            Logger.getLogger(Add_window.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_SaveButtonMouseClicked
 
     private void SaveButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseEntered

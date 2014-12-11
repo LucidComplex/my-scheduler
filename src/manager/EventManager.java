@@ -6,10 +6,9 @@
 package manager;
 
 import base.Command;
+import exceptions.CommandNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Manager that handles events such as button events
@@ -32,13 +31,4 @@ public abstract class EventManager {
         else
             command.execute();
     }
-}
-
-class CommandNotFoundException extends Exception {
-    
-    public CommandNotFoundException(String msg){
-        Logger.getLogger(EventManager.class.getName())
-                .log(Level.SEVERE, msg, this);
-    }
-    
 }

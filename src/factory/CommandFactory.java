@@ -6,6 +6,8 @@
 package factory;
 
 import base.Command;
+import base.UI;
+import commands.AddNoteCommand;
 
 /**
  *
@@ -14,15 +16,11 @@ import base.Command;
 public abstract class CommandFactory {
     
     /**
-     * Creates a Command object to use.
-     * 
-     * @param aClass the Command Class to instantiate.
-     * @return a Command instance.
-     * @throws InstantiationException
-     * @throws IllegalAccessException
+     *
+     * @param ui the UI to bind this command to.
+     * @return an add note command
      */
-    public static Command create(Class<? extends Command> aClass) throws InstantiationException, IllegalAccessException {
-        return aClass.newInstance();
+    public static Command createAddNoteCommand(UI ui){
+        return new AddNoteCommand(ui);
     }
-    
 }

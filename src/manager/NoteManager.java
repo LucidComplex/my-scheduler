@@ -6,6 +6,7 @@
 package manager;
 
 import base.ModelManager;
+import exceptions.NotReadyException;
 import factory.JSONModelFactory;
 import java.io.File;
 import java.io.IOException;
@@ -76,11 +77,5 @@ public final class NoteManager extends ModelManager {
     
     private static void throwException() throws NotReadyException{
         throw new NotReadyException("Initialize the Manager first.");
-    }
-}
-
-class NotReadyException extends Exception {
-    public NotReadyException(String msg){
-        System.out.println(msg);
     }
 }
