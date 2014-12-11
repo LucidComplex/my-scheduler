@@ -6,6 +6,7 @@
 package ui;
 
 import base.UI;
+import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
 
@@ -440,6 +441,24 @@ public class Add_window extends javax.swing.JFrame implements UI {
      */
     @Override
     public Map getFields() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map fields = new HashMap();
+        
+        fields.put(StartDay.getName(), StartDay);
+        fields.put(StartHour.getName(), StartHour);
+        fields.put(StartMeridian.getName(), StartMeridian);
+        fields.put(StartMinutes.getName(), StartMinutes);
+        fields.put(StartMonth.getName(), StartMonth);
+        fields.put(StartYear.getName(), StartYear);
+        fields.put(DescriptionBox.getName(), DescriptionBox);
+        fields.put(DescriptionBoxScroll.getName(), DescriptionBoxScroll);
+        fields.put(EndDay.getName(), EndDay);
+        fields.put(EndHour.getName(), EndHour);
+        fields.put(EndMeridian.getName(), EndMeridian);
+        fields.put(EndMinutes.getName(), EndMinutes);
+        fields.put(EndMonth.getName(), EndMonth);
+        fields.put(EndYear.getName(), EndYear);
+        fields.put(TaskTitle.getName(), TaskTitle);
+        
+        return fields;
     }
 }
