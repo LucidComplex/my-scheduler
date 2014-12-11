@@ -461,8 +461,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel14" min="-2" pref="218" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" min="-2" pref="218" max="-2" attributes="0"/>
+                                  <Component id="NI23" min="-2" pref="218" max="-2" attributes="0"/>
+                                  <Component id="TaskingLevel" min="-2" pref="218" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="23" max="32767" attributes="0"/>
                           </Group>
@@ -472,16 +472,16 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="jLabel14" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="NI23" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel15" pref="48" max="32767" attributes="0"/>
+                              <Component id="TaskingLevel" pref="48" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel14">
+                    <Component class="javax.swing.JLabel" name="NI23">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="20" style="0"/>
@@ -490,10 +490,10 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Tasking Level"/>
-                        <Property name="name" type="java.lang.String" value="jLabel14" noResource="true"/>
+                        <Property name="name" type="java.lang.String" value="NI23" noResource="true"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel15">
+                    <Component class="javax.swing.JLabel" name="TaskingLevel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="24" style="0"/>
@@ -502,7 +502,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Procrastinator"/>
-                        <Property name="name" type="java.lang.String" value="jLabel15" noResource="true"/>
+                        <Property name="name" type="java.lang.String" value="TaskingLevel" noResource="true"/>
                       </Properties>
                     </Component>
                   </SubComponents>

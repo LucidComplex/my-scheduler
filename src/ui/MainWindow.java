@@ -5,13 +5,16 @@
  */
 package ui;
 
+import base.UI;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFrame;
 
 /**
  *
  * @author MarkLester
  */
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame implements UI {
 
     /**
      * Creates new form MainWindow
@@ -46,8 +49,8 @@ public class MainWindow extends javax.swing.JFrame {
         AccomplishedTodayCount = new javax.swing.JLabel();
         NI4 = new javax.swing.JLabel();
         levelTile = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        NI23 = new javax.swing.JLabel();
+        TaskingLevel = new javax.swing.JLabel();
         Upcoming_Container = new javax.swing.JPanel();
         Upcoming1Panel = new javax.swing.JPanel();
         Upcoming1Title = new javax.swing.JLabel();
@@ -262,15 +265,15 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Tasking Level");
-        jLabel14.setName("jLabel14"); // NOI18N
+        NI23.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        NI23.setForeground(new java.awt.Color(255, 255, 255));
+        NI23.setText("Tasking Level");
+        NI23.setName("NI23"); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Procrastinator");
-        jLabel15.setName("jLabel15"); // NOI18N
+        TaskingLevel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        TaskingLevel.setForeground(new java.awt.Color(255, 255, 255));
+        TaskingLevel.setText("Procrastinator");
+        TaskingLevel.setName("TaskingLevel"); // NOI18N
 
         javax.swing.GroupLayout levelTileLayout = new javax.swing.GroupLayout(levelTile);
         levelTile.setLayout(levelTileLayout);
@@ -279,17 +282,17 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(levelTileLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(levelTileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NI23, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TaskingLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         levelTileLayout.setVerticalGroup(
             levelTileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(levelTileLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NI23, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(TaskingLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1019,6 +1022,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel NI2;
     private javax.swing.JLabel NI20;
     private javax.swing.JLabel NI21;
+    private javax.swing.JLabel NI23;
     private javax.swing.JLabel NI3;
     private javax.swing.JLabel NI4;
     private javax.swing.JLabel NI6;
@@ -1038,6 +1042,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel TaskTitle1;
     private javax.swing.JLabel TaskTitle2;
     private javax.swing.JLabel TaskTodayCount;
+    private javax.swing.JLabel TaskingLevel;
     private javax.swing.JPanel Tiles_Container;
     private javax.swing.JLabel TodayIsWhat;
     private javax.swing.JPanel Upcoming1Accent;
@@ -1058,12 +1063,45 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel all_tasksTab;
     private javax.swing.JPanel heyTile;
     private javax.swing.JPanel homeTab;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel levelTile;
     private javax.swing.JTabbedPane mainTab;
     private javax.swing.JPanel todayTab;
     private javax.swing.JPanel todayTile;
     // End of variables declaration//GEN-END:variables
     private JFrame add_window;
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        
+        fields.put(TaskTitle1.getName(), TaskTitle1);
+        fields.put(TaskSched1.getName(), TaskSched1);
+        fields.put(TaskDuration1.getName(), TaskDuration1);
+        fields.put(AccomplishedYesNo1.getName(), AccomplishedYesNo1);
+        fields.put(Description1.getName(),Description1);
+        
+        fields.put(TaskTitle2.getName(), TaskTitle2);
+        fields.put(TaskSched2.getName(), TaskSched2);
+        fields.put(TaskDuration2.getName(), TaskDuration2);
+        fields.put(AccomplishedYesNo2.getName(), AccomplishedYesNo2);
+        fields.put(Description2.getName(),Description2);
+        
+        fields.put(TaskList1.getName(), TaskList1);
+        fields.put(RunningTaskTitle.getName(), RunningTaskTitle);
+        
+        fields.put(Upcoming1Title.getName(), Upcoming1Title);
+        fields.put(Upcoming2Title.getName(), Upcoming2Title);
+        fields.put(Upcoming3Title.getName(), Upcoming3Title);
+        
+        fields.put(Upcoming1Sched.getName(), Upcoming1Sched);
+        fields.put(Upcoming2Sched.getName(), Upcoming2Sched);
+        fields.put(Upcoming3Sched.getName(), Upcoming3Sched);
+        
+        fields.put(TodayIsWhat.getName(), TodayIsWhat);
+        fields.put(TaskingLevel.getName(), TaskingLevel);    
+        fields.put(TaskTodayCount.getName(), TaskTodayCount);
+        fields.put(AccomplishedTodayCount.getName(), AccomplishedTodayCount);
+        
+        return fields;
+    }
 }
