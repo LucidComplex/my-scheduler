@@ -79,7 +79,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         Upcoming_See_All_Button = new javax.swing.JPanel();
         NI7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        XPPoints = new javax.swing.JLabel();
         todayTab = new javax.swing.JPanel();
         TaskListBox1 = new javax.swing.JScrollPane();
         TaskList1 = new javax.swing.JList();
@@ -561,9 +561,9 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         jLabel1.setText(" XP Points: ");
         jLabel1.setName("jLabel1"); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("250");
-        jLabel2.setName("jLabel2"); // NOI18N
+        XPPoints.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        XPPoints.setText("250");
+        XPPoints.setName("XPPoints"); // NOI18N
 
         javax.swing.GroupLayout homeTabLayout = new javax.swing.GroupLayout(homeTab);
         homeTab.setLayout(homeTabLayout);
@@ -576,7 +576,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                         .addGap(21, 21, 21)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(XPPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(homeTabLayout.createSequentialGroup()
                         .addComponent(Tiles_Container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(homeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -607,7 +607,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(homeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(XPPoints, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1150,12 +1150,12 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     private javax.swing.JLabel Upcoming3Title;
     private javax.swing.JPanel Upcoming_Container;
     private javax.swing.JPanel Upcoming_See_All_Button;
+    private javax.swing.JLabel XPPoints;
     private javax.swing.JPanel accomplishedTile;
     private javax.swing.JPanel all_tasksTab;
     private javax.swing.JPanel heyTile;
     private javax.swing.JPanel homeTab;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel levelTile;
     private javax.swing.JTabbedPane mainTab;
     private javax.swing.JPanel todayTab;
@@ -1194,6 +1194,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         fields.put(TaskTodayCount.getName(), TaskTodayCount);
         fields.put(AccomplishedTodayCount.getName(), AccomplishedTodayCount);
         fields.put(RankTop.getName(), RankTop);
+        fields.put(XPPoints.getName(), XPPoints);
         
         return fields;
     }
