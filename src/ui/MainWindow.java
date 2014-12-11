@@ -19,6 +19,9 @@ import manager.Executor;
  * @author MarkLester
  */
 public class MainWindow extends javax.swing.JFrame implements UI {
+    private JFrame add_window;
+    private JFrame ExtendWindow;
+    private JFrame xp;    
 
     /**
      * Creates new form MainWindow
@@ -27,8 +30,8 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         initComponents();
         Executor.put(UpdateInterfaceCommand.class, CommandFactory.createUpdateInterfaceCommand(this));
         add_window = new Add_window();
+        Executor.execute(UpdateInterfaceCommand.class);
         ExtendWindow = new ExtendWarning();
-        Executor.execute()
         xp = new EarnXP();
     }
 
@@ -959,9 +962,11 @@ public class MainWindow extends javax.swing.JFrame implements UI {
 
         NI20.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         NI20.setText("Currently Running Task:");
+        NI20.setName("NI20"); // NOI18N
 
         RunningTaskTitle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         RunningTaskTitle.setText("Study CMSC 57");
+        RunningTaskTitle.setName("RunningTaskTitle"); // NOI18N
 
         NI21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/running.png"))); // NOI18N
         NI21.setName("NI21"); // NOI18N
@@ -1162,7 +1167,41 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     private javax.swing.JPanel todayTab;
     private javax.swing.JPanel todayTile;
     // End of variables declaration//GEN-END:variables
-    private Add_window add_window;
-    private ExtendWarning ExtendWindow;
-    private EarnXP xp;
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        
+        fields.put(TaskTitle1.getName(), TaskTitle1);
+        fields.put(TaskSched1.getName(), TaskSched1);
+        fields.put(TaskDuration1.getName(), TaskDuration1);
+        fields.put(AccomplishedYesNo1.getName(), AccomplishedYesNo1);
+        fields.put(Description1.getName(),Description1);
+        
+        fields.put(TaskTitle2.getName(), TaskTitle2);
+        fields.put(TaskSched2.getName(), TaskSched2);
+        fields.put(TaskDuration2.getName(), TaskDuration2);
+        fields.put(AccomplishedYesNo2.getName(), AccomplishedYesNo2);
+        fields.put(Description2.getName(),Description2);
+        
+        fields.put(TaskList1.getName(), TaskList1);
+        fields.put(RunningTaskTitle.getName(), RunningTaskTitle);
+        
+        fields.put(Upcoming1Title.getName(), Upcoming1Title);
+        fields.put(Upcoming2Title.getName(), Upcoming2Title);
+        fields.put(Upcoming3Title.getName(), Upcoming3Title);
+        
+        fields.put(Upcoming1Sched.getName(), Upcoming1Sched);
+        fields.put(Upcoming2Sched.getName(), Upcoming2Sched);
+        fields.put(Upcoming3Sched.getName(), Upcoming3Sched);
+        
+        fields.put(TodayIsWhat.getName(), TodayIsWhat);
+        fields.put(TaskingLevel.getName(), TaskingLevel);    
+        fields.put(TaskTodayCount.getName(), TaskTodayCount);
+        fields.put(AccomplishedTodayCount.getName(), AccomplishedTodayCount);
+        fields.put(RankTop.getName(), RankTop);
+        
+        return fields;
+    }
+    
 }
