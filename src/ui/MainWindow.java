@@ -5,13 +5,16 @@
  */
 package ui;
 
+import base.UI;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFrame;
 
 /**
  *
  * @author MarkLester
  */
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame implements UI {
 
     /**
      * Creates new form MainWindow
@@ -1099,4 +1102,39 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel todayTile;
     // End of variables declaration//GEN-END:variables
     private JFrame add_window;
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        
+        fields.put(TaskTitle1.getName(), TaskTitle1);
+        fields.put(TaskSched1.getName(), TaskSched1);
+        fields.put(TaskDuration1.getName(), TaskDuration1);
+        fields.put(AccomplishedYesNo1.getName(), AccomplishedYesNo1);
+        fields.put(Description1.getName(),Description1);
+        
+        fields.put(TaskTitle2.getName(), TaskTitle2);
+        fields.put(TaskSched2.getName(), TaskSched2);
+        fields.put(TaskDuration2.getName(), TaskDuration2);
+        fields.put(AccomplishedYesNo2.getName(), AccomplishedYesNo2);
+        fields.put(Description2.getName(),Description2);
+        
+        fields.put(TaskList1.getName(), TaskList1);
+        fields.put(RunningTaskTitle.getName(), RunningTaskTitle);
+        
+        fields.put(Upcoming1Title.getName(), Upcoming1Title);
+        fields.put(Upcoming2Title.getName(), Upcoming2Title);
+        fields.put(Upcoming3Title.getName(), Upcoming3Title);
+        
+        fields.put(Upcoming1Sched.getName(), Upcoming1Sched);
+        fields.put(Upcoming2Sched.getName(), Upcoming2Sched);
+        fields.put(Upcoming3Sched.getName(), Upcoming3Sched);
+        
+        fields.put(TodayIsWhat.getName(), TodayIsWhat);
+        fields.put(TaskingLevel.getName(), TaskingLevel);    
+        fields.put(TaskTodayCount.getName(), TaskTodayCount);
+        fields.put(AccomplishedTodayCount.getName(), AccomplishedTodayCount);
+        
+        return fields;
+    }
 }
