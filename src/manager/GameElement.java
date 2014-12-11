@@ -20,7 +20,7 @@ import persistence.JSONWriter;
  * @author tan
  */
 public final class GameElement {
-    private static int level;
+    private static int level = 1;
     private static int streak;
     private static int experience;
     
