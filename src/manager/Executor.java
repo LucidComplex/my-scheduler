@@ -15,7 +15,7 @@ import java.util.Map;
  * 
  * @author tan
  */
-public abstract class EventManager {
+public abstract class Executor {
     private static Map<Class, Command> commands = new HashMap();
     
     public static void put(Class aClass, Command command){

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import manager.EventManager;
+import manager.Executor;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
      */
     public Add_window() throws InstantiationException, IllegalAccessException {
         initComponents();
-        EventManager.put(AddNoteCommand.class, CommandFactory.createAddNoteCommand(this));
+        Executor.put(AddNoteCommand.class, CommandFactory.createAddNoteCommand(this));
     }
 
     /**
@@ -455,10 +455,11 @@ public class Add_window extends javax.swing.JFrame implements UI {
 
     private void SaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseClicked
         try {
-            EventManager.execute(AddNoteCommand.class);
+            Executor.execute(AddNoteCommand.class);
         } catch (CommandNotFoundException ex) {
             Logger.getLogger(Add_window.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.dispose();
     }//GEN-LAST:event_SaveButtonMouseClicked
 
     private void SaveButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseEntered

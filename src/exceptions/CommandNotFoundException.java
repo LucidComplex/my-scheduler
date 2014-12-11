@@ -7,7 +7,7 @@ package exceptions;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import manager.EventManager;
+import manager.Executor;
 
 /**
  *
@@ -17,7 +17,7 @@ import manager.EventManager;
 public class CommandNotFoundException extends Exception {
     
     public CommandNotFoundException(String msg){
-        Logger.getLogger(EventManager.class.getName())
+        Logger.getLogger(Executor.class.getName())
                 .log(Level.SEVERE, msg, this);
     }
     
