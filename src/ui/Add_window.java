@@ -194,7 +194,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
         StartYear.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
         StartYear.setName("StartYear"); // NOI18N
 
-        StartHour.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        StartHour.setModel(new javax.swing.SpinnerNumberModel(0, 0, 12, 1));
         StartHour.setName("StartHour"); // NOI18N
 
         StartMeridian.setModel(new javax.swing.SpinnerListModel(new String[] {"AM", "PM"}));
@@ -239,7 +239,7 @@ public class Add_window extends javax.swing.JFrame implements UI {
         EndMonth.setModel(new javax.swing.SpinnerListModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
         EndMonth.setName("EndMonth"); // NOI18N
 
-        EndHour.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        EndHour.setModel(new javax.swing.SpinnerNumberModel(0, 0, 12, 1));
         EndHour.setName("EndHour"); // NOI18N
 
         NI17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

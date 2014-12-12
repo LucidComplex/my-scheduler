@@ -7,7 +7,7 @@ package commands;
 
 import base.Command;
 import base.UI;
-import java.awt.Color;
+import com.sun.prism.paint.Color;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
@@ -42,6 +42,7 @@ public class UpdateInterfaceCommand extends Command {
         updateTodaysTaskTable();
         updateTaskLevel();
         updateUpcomingTasks();
+        updatePanelColor();
     }
     
     /**
@@ -78,13 +79,18 @@ public class UpdateInterfaceCommand extends Command {
         JPanel panel1 = (JPanel) fields.get("Upcoming1Accent");
         JPanel panel2 = (JPanel) fields.get("Upcoming2Accent");
         JPanel panel3 = (JPanel) fields.get("Upcoming3Accent");
+        JPanel [] panels = {panel1,panel2,panel3};
         
-        JLabel task1 = (JLabel) fields.get("Upcoming1Sched");
-        JLabel task2 = (JLabel) fields.get("Upcoming2Sched");
-        JLabel task3 = (JLabel) fields.get("Upcoming3Sched");
+        List<Note> noteList = NoteManager.toList();
+        long now = Calendar.getInstance().getTime().getTime();
         
-        Calendar now = Calendar.getInstance();
-  
+        for(int i=0; i<noteList.size()&& i<3;i++){
+            long deadline = noteList.get(i).getDeadline().getTime();
+            long days = deadline - now;
+            if (days < 86400000*3)
+                panels[i].setBackground(java.awt.Color.red);
+        }
+
     }
     
     private void updateUpcomingTasks(){

@@ -17,9 +17,9 @@ public class NoteComparator implements Comparator<Note> {
     @Override
     public int compare(Note o1, Note o2) {
         if(o1.getDeadline().before(o2.getDeadline()))
-            return -1;
-        else if(o1.getDeadline().after(o2.getDeadline()))
             return 1;
+        else if(o1.getDeadline().after(o2.getDeadline()))
+            return -1;
         else
             return 0;
     }
