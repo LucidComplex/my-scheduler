@@ -533,7 +533,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         );
 
         NI6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        NI6.setText("Upcoming Today");
+        NI6.setText("Upcoming Tasks");
         NI6.setName("NI6"); // NOI18N
 
         Upcoming_See_All_Button.setBackground(new java.awt.Color(204, 204, 204));
@@ -1015,7 +1015,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(RunningTaskTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NI20, javax.swing.GroupLayout.PREFERRED_SIZE, 175, Short.MAX_VALUE))
+                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NI24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1222,6 +1222,10 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         fields.put(Upcoming1Sched.getName(), Upcoming1Sched);
         fields.put(Upcoming2Sched.getName(), Upcoming2Sched);
         fields.put(Upcoming3Sched.getName(), Upcoming3Sched);
+        
+        fields.put(Upcoming1Accent.getName(), Upcoming1Accent);
+        fields.put(Upcoming2Accent.getName(), Upcoming2Accent);
+        fields.put(Upcoming3Accent.getName(), Upcoming3Accent);
         
         fields.put(TodayIsWhat.getName(), TodayIsWhat);
         fields.put(TaskingLevel.getName(), TaskingLevel);    

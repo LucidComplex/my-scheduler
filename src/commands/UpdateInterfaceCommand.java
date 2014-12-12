@@ -7,6 +7,7 @@ package commands;
 
 import base.Command;
 import base.UI;
+import java.awt.Color;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Map;
 import javax.swing.AbstractListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import manager.GameElement;
 import manager.NoteManager;
 import model.Note;
@@ -39,6 +41,7 @@ public class UpdateInterfaceCommand extends Command {
         updateTodayCompleted();
         updateTodaysTaskTable();
         updateTaskLevel();
+        updateUpcomingTasks();
     }
     
     /**
@@ -71,20 +74,37 @@ public class UpdateInterfaceCommand extends Command {
         rank.setText(intToTaskingLevel(level));
     }
     
-    private String intToTaskingLevel(int level){
-        switch(level){
-            case 1:
-                return "Slow Poke";
-            case 2:
-                return "Procastinator";
-            case 3:
-                return "Clock Work";
-            case 4:
-                return "Over-Achiever";
-            case 5:
-                return "GodLike";
+    private void updatePanelColor(){
+        JPanel panel1 = (JPanel) fields.get("Upcoming1Accent");
+        JPanel panel2 = (JPanel) fields.get("Upcoming2Accent");
+        JPanel panel3 = (JPanel) fields.get("Upcoming3Accent");
+        
+        JLabel task1 = (JLabel) fields.get("Upcoming1Sched");
+        JLabel task2 = (JLabel) fields.get("Upcoming2Sched");
+        JLabel task3 = (JLabel) fields.get("Upcoming3Sched");
+        
+        Calendar now = Calendar.getInstance();
+  
+    }
+    
+    private void updateUpcomingTasks(){
+        JLabel task1Title = (JLabel) fields.get("Upcoming1Title");
+        JLabel task2Title = (JLabel) fields.get("Upcoming2Title");
+        JLabel task3Title = (JLabel) fields.get("Upcoming3Title");
+        JLabel [] tasks = {task1Title,task2Title,task3Title};
+        
+        JLabel task1Sched = (JLabel) fields.get("Upcoming1Sched");
+        JLabel task2Sched = (JLabel) fields.get("Upcoming2Sched");
+        JLabel task3Sched = (JLabel) fields.get("Upcoming3Sched");
+        JLabel [] taskScheds = {task1Sched,task2Sched,task3Sched};
+        
+        List <Note> noteList = NoteManager.toList();
+        for (int i = 0; i < noteList.size() && i < 3; i++){
+            Note note = noteList.get(i);
+            tasks[i].setText(note.getTitle().toString());
+            taskScheds[i].setText(note.getDeadline().toString());
         }
-        return "Beyond GodLike";
+        
     }
     
     /**
@@ -259,6 +279,22 @@ public class UpdateInterfaceCommand extends Command {
         }
         
         return monthString;
+    }
+   
+    private String intToTaskingLevel(int level){
+        switch(level){
+            case 1:
+                return "Slow Poke";
+            case 2:
+                return "Procastinator";
+            case 3:
+                return "Clock Work";
+            case 4:
+                return "Over-Achiever";
+            case 5:
+                return "GodLike";
+        }
+        return "Beyond GodLike";
     }
             
 //</editor-fold>

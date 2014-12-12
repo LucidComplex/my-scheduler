@@ -17,18 +17,24 @@ import java.util.AbstractQueue;
  * @author tan
  */
 public class JSONWriter {
-    private static BufferedWriter file;
-    
+    private static BufferedWriter bufferedWriter;
+    private static File file;
     public static void setFile(File file) throws IOException{
-        JSONWriter.file = new BufferedWriter(new FileWriter(file));
+        JSONWriter.file = file;
+        JSONWriter.bufferedWriter = new BufferedWriter(new FileWriter(file, true));
     }
     
     public static void writeModels(AbstractQueue<JSONModel> modelList) throws IOException{
+        BufferedWriter temp = JSONWriter.bufferedWriter;
+        
+        // rewrite file
+        JSONWriter.bufferedWriter = new BufferedWriter(new FileWriter(file));
         for(JSONModel m : modelList){
-            file.write(m.toJSON().toString());
-            file.newLine();
-            file.flush();
+            bufferedWriter.write(m.toJSON().toString());
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
         }
-        file.close();
+        bufferedWriter.close();
+        JSONWriter.bufferedWriter = temp;
     }
 }

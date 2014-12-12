@@ -33,6 +33,7 @@ public class Note implements JSONModel, Comparable {
     private boolean done;
     private Color color;
     private DateFormat df;
+    private boolean clean;
     
     public Note(){
         title = "";
@@ -42,6 +43,7 @@ public class Note implements JSONModel, Comparable {
         reminder = Date.from(Instant.now());
         completionDate = Date.from(Instant.now());
         done = false;
+        clean = false;
         df = new SimpleDateFormat();
     }
     
@@ -52,6 +54,7 @@ public class Note implements JSONModel, Comparable {
         completionDate = new Date();
         begin = new Date();
         done = false;
+        clean = false;
         reminder = new Date();
         df = new SimpleDateFormat();
     }
@@ -160,6 +163,21 @@ public class Note implements JSONModel, Comparable {
         this.done = done;
     }
     
+
+    /**
+     * @return the clean
+     */
+    public boolean isClean() {
+        return clean;
+    }
+
+    /**
+     * @param clean the clean to set
+     */
+    public void setClean(boolean clean) {
+        this.clean = clean;
+    }
+    
 //</editor-fold>
     
     /**
@@ -243,4 +261,5 @@ public class Note implements JSONModel, Comparable {
         return 0;
         
     }
+
 }
