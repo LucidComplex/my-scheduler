@@ -83,13 +83,16 @@ public class UpdateInterfaceCommand extends Command {
         
         List<Note> noteList = NoteManager.toList();
         long now = Calendar.getInstance().getTime().getTime();
-        
-        for(int i=0; i<noteList.size()&& i<3;i++){
+        int i;
+        for(i=0; i<noteList.size() && i<3; i++){
             long deadline = noteList.get(i).getDeadline().getTime();
             long days = deadline - now;
             if (days < 86400000*3)
                 panels[i].setBackground(java.awt.Color.red);
         }
+        
+        while(i<3)
+            panels[i++].setBackground(java.awt.Color.GRAY);
 
     }
     
@@ -105,10 +108,16 @@ public class UpdateInterfaceCommand extends Command {
         JLabel [] taskScheds = {task1Sched,task2Sched,task3Sched};
         
         List <Note> noteList = NoteManager.toList();
-        for (int i = 0; i < noteList.size() && i < 3; i++){
+        int i;
+        for (i = 0; i < noteList.size() && i < 3; i++){
             Note note = noteList.get(i);
             tasks[i].setText(note.getTitle().toString());
             taskScheds[i].setText(note.getDeadline().toString());
+        }
+        
+        while(i<3){
+            tasks[i].setText("");
+            taskScheds[i++].setText("");
         }
         
     }
@@ -128,13 +137,9 @@ public class UpdateInterfaceCommand extends Command {
     
     private void updateTaskTodayCount(){
         JLabel taskTodayCount = (JLabel) fields.get("TaskTodayCount");
-        List<Note> noteList = NoteManager.toList();
         
         // only account for active tasks "today" tasks
-        int taskCount = 0;
-        for(Note n : noteList)
-            if(n.isActive())
-                taskCount++;
+        int taskCount = NoteManager.size();
         
         taskTodayCount.setText(String.valueOf(taskCount));
     }

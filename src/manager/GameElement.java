@@ -5,15 +5,15 @@
  */
 package manager;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.AbstractQueue;
-import java.util.PriorityQueue;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import persistence.JSONReader;
-import persistence.JSONWriter;
 
 /**
  *
@@ -29,7 +29,7 @@ public final class GameElement {
      * 
      * @param delta the amount of experience to increase
      */
-    public static void increaseExperience(int delta) throws IllegalArgumentException {
+    public static void increaseExperience(int delta) throws IllegalArgumentException, IOException {
         if(delta<0)
             throw new IllegalArgumentException(
                     "Delta can not be negative."
@@ -45,7 +45,7 @@ public final class GameElement {
      * 
      * @throws IllegalArgumentException
      */
-    public static void decreaseExperience(int delta) throws IllegalArgumentException {
+    public static void decreaseExperience(int delta) throws IllegalArgumentException, IOException {
         if(delta<0)
             throw new IllegalArgumentException(
                     "Delta can not be negative."
@@ -59,8 +59,9 @@ public final class GameElement {
     /**
      * updates the level based on the experience.
      */
-    private static void updateLevel(){
+    private static void updateLevel() throws IOException{
         level = 1 + experience/100;
+        save();
     }
     
     /**
@@ -78,15 +79,17 @@ public final class GameElement {
     }
     
     public static void save() throws IOException{
-        JSONWriter.setFile(new File("scores.json"));
-        AbstractQueue temp = new PriorityQueue(1);
-        temp.add(GameElement.toJSON());
-        JSONWriter.writeModels(temp);
+        BufferedWriter bw = new BufferedWriter(new FileWriter("scores.json"));
+        bw.write(toJSON().toJSONString());
+        bw.flush();
     }
     
     public static void load() throws FileNotFoundException, IOException, ParseException, InstantiationException, IllegalAccessException{
-        JSONReader.setFile(new File("scores.json"));
-        fromJSON(JSONReader.loadModels(GameElement.class).poll().toJSON());
+        BufferedReader br = new BufferedReader(new FileReader("scores.json"));
+        JSONParser parser = new JSONParser();
+        String line = br.readLine();
+        if(line!=null)
+            fromJSON((JSONObject) parser.parse(line));
     }
 
 //<editor-fold defaultstate="collapsed" desc="Accessors">
@@ -115,17 +118,17 @@ public final class GameElement {
     public static JSONObject toJSON() {
         JSONObject json = new JSONObject();
         
-        json.put("level", level);
-        json.put("experience", experience);
-        json.put("streak", streak);
+        json.put("level", String.valueOf(level));
+        json.put("experience", String.valueOf(experience));
+        json.put("streak", String.valueOf(streak));
         
         return json;
     }
 
     public static void fromJSON(JSONObject json) {
-        level = (int) json.get("level");
-        experience = (int) json.get("experience");
-        streak = (int) json.get("streak");
+        level = Integer.valueOf((String) json.get("level"));
+        experience = Integer.valueOf((String) json.get("experience"));
+        streak = (int) Integer.valueOf((String) json.get("streak"));
     }
     
 }

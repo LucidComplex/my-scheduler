@@ -8,6 +8,7 @@ package factory;
 import base.Command;
 import base.UI;
 import commands.*;
+import ui.MainWindow;
 
 /**
  *
@@ -26,5 +27,17 @@ public abstract class CommandFactory {
     
     public static Command createUpdateInterfaceCommand(UI ui){
         return new UpdateInterfaceCommand(ui);
+    }
+    
+    public static Command createAccomplishCommand(UI ui){
+        return new AccomplishCommand(ui);
+    }
+
+    public static Command createShowDetailsCommand(UI ui) {
+        return new ShowDetailsCommand(ui);
+    }
+
+    public static Command createDeleteCommand(UI ui) {
+        return new DeleteCommand(ui);
     }
 }

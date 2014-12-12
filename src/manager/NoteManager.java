@@ -11,6 +11,7 @@ import exceptions.NotReadyException;
 import factory.JSONModelFactory;
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.PriorityQueue;
 import model.Note;
@@ -39,10 +40,22 @@ public final class NoteManager extends ModelManager {
         saveFile = filepath;
         modelQueue = new PriorityQueue(11, new NoteComparator());
         file = new File(filepath);
+        JSONWriter.setFile(file);
         JSONReader.setFile(file);
         NoteManager.loadModels();
-        JSONWriter.setFile(file);
         ready = true;
+    }
+    
+    public static Note getNoteByIndex(int index){
+        Iterator <Note> itr = modelQueue.iterator();
+        for(int i=0;i<index;i++)
+            itr.next();
+        
+        return itr.next();
+    }
+    
+    public static int size(){
+        return modelQueue.size();
     }
     
     /**
@@ -57,6 +70,14 @@ public final class NoteManager extends ModelManager {
             throwException();
         Note note = (Note) JSONModelFactory.create(Note.class);
         ModelManager.manage(note);
+    }
+    
+    public static void deleteNoteByIndex(int index) throws IOException{
+        Iterator <Note> itr = modelQueue.iterator();
+        for(int i=0;i<=index;i++)
+            itr.next();
+        itr.remove();
+        saveModels();
     }
     
     public static void searchNoteByTitle(String title) throws NotReadyException{
