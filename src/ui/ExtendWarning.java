@@ -6,22 +6,27 @@
 package ui;
 
 import base.UI;
+import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
+import manager.GameElement;
+import model.Note;
 
 /**
  *
  * @author MarkLester
  */
 public class ExtendWarning extends javax.swing.JFrame implements UI {
-
+    private Note note;
+    private JFrame ExtendWindow;
+    
     /**
      * Creates new form ExtendWarning
      */
-    public ExtendWarning() {
+    public ExtendWarning(Note n) {
         initComponents();
-        ExtendSched = new ExtendSched();
+        note = n;
     }
 
     /**
@@ -47,7 +52,7 @@ public class ExtendWarning extends javax.swing.JFrame implements UI {
         NI2.setText("Extending Deadline requires 100 XP Points!");
 
         XPPoints.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        XPPoints.setText("250");
+        XPPoints.setText(String.valueOf(GameElement.getExperience()));
 
         NI1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/star.png"))); // NOI18N
@@ -178,7 +183,15 @@ public class ExtendWarning extends javax.swing.JFrame implements UI {
     }//GEN-LAST:event_NI12FocusGained
 
     private void OKButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OKButtonMouseClicked
-          ExtendSched.setVisible(true);
+        if(GameElement.getExperience()<100){
+            XPPoints.setForeground(Color.RED);
+            return;
+        }
+            
+        
+        ExtendWindow = new ExtendSched(note);
+        ExtendWindow.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_OKButtonMouseClicked
 
     private void OKButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OKButtonMouseEntered
@@ -194,7 +207,7 @@ public class ExtendWarning extends javax.swing.JFrame implements UI {
     }//GEN-LAST:event_NI18FocusGained
 
     private void CancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelButtonMouseClicked
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_CancelButtonMouseClicked
 
     private void CancelButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelButtonMouseEntered

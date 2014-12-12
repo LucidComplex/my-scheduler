@@ -6,10 +6,12 @@
 package ui;
 
 import base.UI;
+import commands.AccomplishCommand;
+import commands.DeleteCommand;
+import commands.ShowDetailsCommand;
 import commands.UpdateInterfaceCommand;
 import exceptions.CommandNotFoundException;
 import factory.CommandFactory;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -24,7 +26,7 @@ import manager.NoteManager;
  */
 public class MainWindow extends javax.swing.JFrame implements UI {
     private JFrame add_window;
-    private JFrame ExtendWindow;
+    private JFrame ExtendWarning;
     private JFrame xp;    
 
     /**
@@ -33,9 +35,10 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     public MainWindow() throws InstantiationException, IllegalAccessException, CommandNotFoundException {
         initComponents();
         Executor.put(UpdateInterfaceCommand.class, CommandFactory.createUpdateInterfaceCommand(this));
+        Executor.put(ShowDetailsCommand.class, CommandFactory.createShowDetailsCommand(this));
+        Executor.put(DeleteCommand.class, CommandFactory.createDeleteCommand(this));
         add_window = new Add_window();
-        Executor.execute(UpdateInterfaceCommand.class);
-        ExtendWindow = new ExtendWarning();
+        Executor.put(AccomplishCommand.class, CommandFactory.createAccomplishCommand(this));
         xp = new EarnXP();
     }
 
@@ -90,34 +93,13 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         TaskTitle1 = new javax.swing.JLabel();
         NI8 = new javax.swing.JLabel();
         NI9 = new javax.swing.JLabel();
-        NI10 = new javax.swing.JLabel();
-        NI11 = new javax.swing.JLabel();
         NI12 = new javax.swing.JLabel();
         DescriptionBox1 = new javax.swing.JScrollPane();
         Description1 = new javax.swing.JTextArea();
         TaskSched1 = new javax.swing.JLabel();
-        TaskDuration1 = new javax.swing.JLabel();
-        AccomplishedYesNo1 = new javax.swing.JLabel();
         ExtendButton1 = new javax.swing.JLabel();
         DeleteButton1 = new javax.swing.JLabel();
         AccomplishButton1 = new javax.swing.JLabel();
-        all_tasksTab = new javax.swing.JPanel();
-        TaskListBox = new javax.swing.JScrollPane();
-        TaskList = new javax.swing.JList();
-        TaskTitle2 = new javax.swing.JLabel();
-        NI13 = new javax.swing.JLabel();
-        TaskSched2 = new javax.swing.JLabel();
-        TaskDuration2 = new javax.swing.JLabel();
-        NI14 = new javax.swing.JLabel();
-        NI15 = new javax.swing.JLabel();
-        AccomplishedYesNo2 = new javax.swing.JLabel();
-        NI16 = new javax.swing.JLabel();
-        NI17 = new javax.swing.JLabel();
-        AccomplishButton2 = new javax.swing.JLabel();
-        DeleteButton2 = new javax.swing.JLabel();
-        DescriptionBox2 = new javax.swing.JScrollPane();
-        Description2 = new javax.swing.JTextArea();
-        ExtendButton2 = new javax.swing.JLabel();
         ProgramIcon = new javax.swing.JLabel();
         AddButton = new javax.swing.JLabel();
         NI20 = new javax.swing.JLabel();
@@ -137,6 +119,13 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
+            }
+        });
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
             }
         });
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -533,7 +522,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         );
 
         NI6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        NI6.setText("Upcoming Today");
+        NI6.setText("Upcoming Tasks");
         NI6.setName("NI6"); // NOI18N
 
         Upcoming_See_All_Button.setBackground(new java.awt.Color(204, 204, 204));
@@ -645,11 +634,21 @@ public class MainWindow extends javax.swing.JFrame implements UI {
             public Object getElementAt(int i) { return strings[i]; }
         });
         TaskList1.setName("TaskList1"); // NOI18N
+        TaskList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TaskList1MouseClicked(evt);
+            }
+        });
+        TaskList1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                TaskList1PropertyChange(evt);
+            }
+        });
         TaskListBox1.setViewportView(TaskList1);
 
         TaskTitle1.setBackground(new java.awt.Color(0, 102, 102));
         TaskTitle1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        TaskTitle1.setText("Study CMSC 57");
+        TaskTitle1.setText("(Select a Task)");
         TaskTitle1.setName("TaskTitle1"); // NOI18N
 
         NI8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -659,14 +658,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         NI9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI9.setText("Scheduled Time:");
         NI9.setName("NI9"); // NOI18N
-
-        NI10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NI10.setText("Duration:");
-        NI10.setName("NI10"); // NOI18N
-
-        NI11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NI11.setText("Accomplished?:");
-        NI11.setName("NI11"); // NOI18N
 
         NI12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NI12.setText("Description:");
@@ -682,16 +673,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         DescriptionBox1.setViewportView(Description1);
 
         TaskSched1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        TaskSched1.setText("12:00 PM - 1:00 PM");
         TaskSched1.setName("TaskSched1"); // NOI18N
-
-        TaskDuration1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        TaskDuration1.setText("1 Hour");
-        TaskDuration1.setName("TaskDuration1"); // NOI18N
-
-        AccomplishedYesNo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        AccomplishedYesNo1.setText("No");
-        AccomplishedYesNo1.setName("AccomplishedYesNo1"); // NOI18N
 
         ExtendButton1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         ExtendButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/extend.png"))); // NOI18N
@@ -709,6 +691,11 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         DeleteButton1.setText("  DELETE");
         DeleteButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         DeleteButton1.setName("DeleteButton1"); // NOI18N
+        DeleteButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeleteButton1MouseClicked(evt);
+            }
+        });
 
         AccomplishButton1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         AccomplishButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check_icon.png"))); // NOI18N
@@ -730,31 +717,20 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                 .addComponent(TaskListBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(todayTabLayout.createSequentialGroup()
-                            .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(NI8)
-                                .addComponent(NI11)
-                                .addComponent(NI12))
-                            .addGap(74, 74, 74))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, todayTabLayout.createSequentialGroup()
-                            .addComponent(NI10)
-                            .addGap(133, 133, 133)
-                            .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(AccomplishedYesNo1)
-                                .addComponent(TaskDuration1))))
-                    .addComponent(TaskTitle1)
+                    .addComponent(NI8)
+                    .addComponent(NI12)
                     .addGroup(todayTabLayout.createSequentialGroup()
                         .addComponent(NI9)
                         .addGap(77, 77, 77)
-                        .addComponent(TaskSched1))
+                        .addComponent(TaskSched1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(DescriptionBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(todayTabLayout.createSequentialGroup()
                         .addComponent(AccomplishButton1)
                         .addGap(29, 29, 29)
                         .addComponent(DeleteButton1)
                         .addGap(45, 45, 45)
-                        .addComponent(ExtendButton1)))
+                        .addComponent(ExtendButton1))
+                    .addComponent(TaskTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         todayTabLayout.setVerticalGroup(
@@ -764,26 +740,18 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                 .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TaskListBox1)
                     .addGroup(todayTabLayout.createSequentialGroup()
-                        .addComponent(TaskTitle1)
+                        .addComponent(TaskTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(NI9)
-                            .addComponent(TaskSched1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NI10)
-                            .addComponent(TaskDuration1))
-                        .addGap(11, 11, 11)
-                        .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NI11)
-                            .addComponent(AccomplishedYesNo1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(TaskSched1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
                         .addComponent(NI12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DescriptionBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(NI8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addGroup(todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, todayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(DeleteButton1)
@@ -792,174 +760,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                 .addContainerGap())
         );
 
-        mainTab.addTab("  today    ", todayTab);
-
-        all_tasksTab.setName("all_tasksTab"); // NOI18N
-
-        TaskListBox.setName("TaskListBox"); // NOI18N
-
-        TaskList.setBackground(new java.awt.Color(240, 240, 240));
-        TaskList.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        TaskList.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        TaskList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Task 1", "Task 2", "Task 3", "Task 4", "Task 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        TaskList.setName("TaskList"); // NOI18N
-        TaskListBox.setViewportView(TaskList);
-
-        TaskTitle2.setBackground(new java.awt.Color(0, 102, 102));
-        TaskTitle2.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        TaskTitle2.setText("Study CMSC 57");
-        TaskTitle2.setName("TaskTitle2"); // NOI18N
-
-        NI13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NI13.setText("Scheduled Time:");
-        NI13.setName("NI13"); // NOI18N
-
-        TaskSched2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        TaskSched2.setText("12:00 PM - 1:00 PM");
-        TaskSched2.setName("TaskSched2"); // NOI18N
-
-        TaskDuration2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        TaskDuration2.setText("1 Hour");
-        TaskDuration2.setName("TaskDuration2"); // NOI18N
-
-        NI14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NI14.setText("Duration:");
-        NI14.setName("NI14"); // NOI18N
-
-        NI15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NI15.setText("Accomplished?:");
-        NI15.setName("NI15"); // NOI18N
-
-        AccomplishedYesNo2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        AccomplishedYesNo2.setText("No");
-        AccomplishedYesNo2.setName("AccomplishedYesNo2"); // NOI18N
-
-        NI16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NI16.setText("Description:");
-        NI16.setName("NI16"); // NOI18N
-
-        NI17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        NI17.setText("*select a task from the list to see details");
-        NI17.setName("NI17"); // NOI18N
-
-        AccomplishButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        AccomplishButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/check_icon.png"))); // NOI18N
-        AccomplishButton2.setText("ACCOMPLISH");
-        AccomplishButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        AccomplishButton2.setName("AccomplishButton2"); // NOI18N
-        AccomplishButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AccomplishButton2MouseClicked(evt);
-            }
-        });
-
-        DeleteButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        DeleteButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_icon.png"))); // NOI18N
-        DeleteButton2.setText("  DELETE");
-        DeleteButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        DeleteButton2.setName("DeleteButton2"); // NOI18N
-
-        DescriptionBox2.setName("DescriptionBox2"); // NOI18N
-
-        Description2.setBackground(new java.awt.Color(240, 240, 240));
-        Description2.setColumns(20);
-        Description2.setRows(5);
-        Description2.setFocusable(false);
-        Description2.setName("Description2"); // NOI18N
-        DescriptionBox2.setViewportView(Description2);
-
-        ExtendButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        ExtendButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/extend.png"))); // NOI18N
-        ExtendButton2.setText("EXTEND");
-        ExtendButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ExtendButton2.setName("ExtendButton2"); // NOI18N
-        ExtendButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ExtendButton2MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout all_tasksTabLayout = new javax.swing.GroupLayout(all_tasksTab);
-        all_tasksTab.setLayout(all_tasksTabLayout);
-        all_tasksTabLayout.setHorizontalGroup(
-            all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(all_tasksTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TaskListBox, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(all_tasksTabLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(all_tasksTabLayout.createSequentialGroup()
-                                    .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(NI17)
-                                        .addComponent(NI15)
-                                        .addComponent(NI16))
-                                    .addGap(74, 74, 74))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, all_tasksTabLayout.createSequentialGroup()
-                                    .addComponent(NI14)
-                                    .addGap(133, 133, 133)
-                                    .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(AccomplishedYesNo2)
-                                        .addComponent(TaskDuration2))))
-                            .addComponent(TaskTitle2)
-                            .addGroup(all_tasksTabLayout.createSequentialGroup()
-                                .addComponent(AccomplishButton2)
-                                .addGap(29, 29, 29)
-                                .addComponent(DeleteButton2)
-                                .addGap(45, 45, 45)
-                                .addComponent(ExtendButton2))
-                            .addGroup(all_tasksTabLayout.createSequentialGroup()
-                                .addComponent(NI13)
-                                .addGap(77, 77, 77)
-                                .addComponent(TaskSched2)))
-                        .addContainerGap(84, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, all_tasksTabLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DescriptionBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        all_tasksTabLayout.setVerticalGroup(
-            all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(all_tasksTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(all_tasksTabLayout.createSequentialGroup()
-                        .addComponent(TaskTitle2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NI13)
-                            .addComponent(TaskSched2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NI14)
-                            .addComponent(TaskDuration2))
-                        .addGap(11, 11, 11)
-                        .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NI15)
-                            .addComponent(AccomplishedYesNo2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NI16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DescriptionBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NI17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, all_tasksTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(DeleteButton2)
-                                .addComponent(ExtendButton2))
-                            .addComponent(AccomplishButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(TaskListBox))
-                .addContainerGap())
-        );
-
-        mainTab.addTab("  all tasks    ", all_tasksTab);
+        mainTab.addTab("All Tasks", todayTab);
 
         ProgramIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/software_icon.png"))); // NOI18N
         ProgramIcon.setName("ProgramIcon"); // NOI18N
@@ -1015,7 +816,7 @@ public class MainWindow extends javax.swing.JFrame implements UI {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(RunningTaskTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NI20, javax.swing.GroupLayout.PREFERRED_SIZE, 175, Short.MAX_VALUE))
+                            .addComponent(NI20, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NI24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1055,50 +856,10 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void levelTileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_levelTileMouseClicked
-        
-    }//GEN-LAST:event_levelTileMouseClicked
-
     
-    private void NI7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NI7FocusGained
-
-    }//GEN-LAST:event_NI7FocusGained
-
-    private void Upcoming_See_All_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Upcoming_See_All_ButtonMouseClicked
-        mainTab.setSelectedIndex(1);
-    }//GEN-LAST:event_Upcoming_See_All_ButtonMouseClicked
-
-    private void Upcoming_See_All_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Upcoming_See_All_ButtonMouseEntered
-        homeTab.setBackground(new java.awt.Color(190, 190, 190));
-    }//GEN-LAST:event_Upcoming_See_All_ButtonMouseEntered
-
-    private void Upcoming_See_All_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Upcoming_See_All_ButtonMouseExited
-        homeTab.setBackground(new java.awt.Color(204, 204, 204));
-    }//GEN-LAST:event_Upcoming_See_All_ButtonMouseExited
-
     private void AddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddButtonMouseClicked
         add_window.setVisible(true);
     }//GEN-LAST:event_AddButtonMouseClicked
-
-    private void todayTileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_todayTileMouseClicked
-        mainTab.setSelectedIndex(1);
-    }//GEN-LAST:event_todayTileMouseClicked
-
-    private void ExtendButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExtendButton1MouseClicked
-       ExtendWindow.setVisible(true);
-    }//GEN-LAST:event_ExtendButton1MouseClicked
-
-    private void ExtendButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExtendButton2MouseClicked
-        ExtendWindow.setVisible(true);
-    }//GEN-LAST:event_ExtendButton2MouseClicked
-
-    private void AccomplishButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AccomplishButton1MouseClicked
-        xp.setVisible(true);
-    }//GEN-LAST:event_AccomplishButton1MouseClicked
-
-    private void AccomplishButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AccomplishButton2MouseClicked
-        xp.setVisible(true);
-    }//GEN-LAST:event_AccomplishButton2MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
     }//GEN-LAST:event_formWindowClosing
@@ -1114,32 +875,87 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         }
     }//GEN-LAST:event_formFocusGained
 
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        try {
+            Executor.execute(UpdateInterfaceCommand.class);
+        } catch (CommandNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void AccomplishButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AccomplishButton1MouseClicked
+        xp.setVisible(true);
+        try {
+            Executor.execute(AccomplishCommand.class);
+        } catch (CommandNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_AccomplishButton1MouseClicked
+
+    private void ExtendButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExtendButton1MouseClicked
+        if(TaskList1.isSelectionEmpty())
+            return;
+        ExtendWarning = new ExtendWarning(NoteManager.getNoteByIndex(TaskList1.getSelectedIndex()));
+        ExtendWarning.setVisible(true);
+    }//GEN-LAST:event_ExtendButton1MouseClicked
+
+    private void Upcoming_See_All_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Upcoming_See_All_ButtonMouseExited
+        homeTab.setBackground(new java.awt.Color(204, 204, 204));
+    }//GEN-LAST:event_Upcoming_See_All_ButtonMouseExited
+
+    private void Upcoming_See_All_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Upcoming_See_All_ButtonMouseEntered
+        homeTab.setBackground(new java.awt.Color(190, 190, 190));
+    }//GEN-LAST:event_Upcoming_See_All_ButtonMouseEntered
+
+    private void Upcoming_See_All_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Upcoming_See_All_ButtonMouseClicked
+        mainTab.setSelectedIndex(1);
+    }//GEN-LAST:event_Upcoming_See_All_ButtonMouseClicked
+
+    private void NI7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NI7FocusGained
+
+    }//GEN-LAST:event_NI7FocusGained
+
+    private void levelTileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_levelTileMouseClicked
+
+    }//GEN-LAST:event_levelTileMouseClicked
+
+    private void todayTileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_todayTileMouseClicked
+        mainTab.setSelectedIndex(1);
+    }//GEN-LAST:event_todayTileMouseClicked
+
+    private void TaskList1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TaskList1PropertyChange
+        
+    }//GEN-LAST:event_TaskList1PropertyChange
+
+    private void TaskList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TaskList1MouseClicked
+        try {
+            Executor.execute(ShowDetailsCommand.class);
+        } catch (CommandNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_TaskList1MouseClicked
+
+    private void DeleteButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteButton1MouseClicked
+        try {                                           
+            Executor.execute(DeleteCommand.class);
+            Executor.execute(UpdateInterfaceCommand.class);
+        } catch (CommandNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_DeleteButton1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AccomplishButton1;
-    private javax.swing.JLabel AccomplishButton2;
     private javax.swing.JLabel AccomplishedTodayCount;
-    private javax.swing.JLabel AccomplishedYesNo1;
-    private javax.swing.JLabel AccomplishedYesNo2;
     private javax.swing.JLabel AddButton;
     private javax.swing.JLabel DateOnTile;
     private javax.swing.JLabel DeleteButton1;
-    private javax.swing.JLabel DeleteButton2;
     private javax.swing.JTextArea Description1;
-    private javax.swing.JTextArea Description2;
     private javax.swing.JScrollPane DescriptionBox1;
-    private javax.swing.JScrollPane DescriptionBox2;
     private javax.swing.JLabel ExtendButton1;
-    private javax.swing.JLabel ExtendButton2;
     private javax.swing.JLabel MainTitle;
     private javax.swing.JLabel NI1;
-    private javax.swing.JLabel NI10;
-    private javax.swing.JLabel NI11;
     private javax.swing.JLabel NI12;
-    private javax.swing.JLabel NI13;
-    private javax.swing.JLabel NI14;
-    private javax.swing.JLabel NI15;
-    private javax.swing.JLabel NI16;
-    private javax.swing.JLabel NI17;
     private javax.swing.JLabel NI2;
     private javax.swing.JLabel NI20;
     private javax.swing.JLabel NI21;
@@ -1155,16 +971,10 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     private javax.swing.JLabel ProgramIcon;
     private javax.swing.JLabel RankTop;
     private javax.swing.JLabel RunningTaskTitle;
-    private javax.swing.JLabel TaskDuration1;
-    private javax.swing.JLabel TaskDuration2;
-    private javax.swing.JList TaskList;
     private javax.swing.JList TaskList1;
-    private javax.swing.JScrollPane TaskListBox;
     private javax.swing.JScrollPane TaskListBox1;
     private javax.swing.JLabel TaskSched1;
-    private javax.swing.JLabel TaskSched2;
     private javax.swing.JLabel TaskTitle1;
-    private javax.swing.JLabel TaskTitle2;
     private javax.swing.JLabel TaskTodayCount;
     private javax.swing.JLabel TaskingLevel;
     private javax.swing.JPanel Tiles_Container;
@@ -1185,7 +995,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     private javax.swing.JPanel Upcoming_See_All_Button;
     private javax.swing.JLabel XPPoints;
     private javax.swing.JPanel accomplishedTile;
-    private javax.swing.JPanel all_tasksTab;
     private javax.swing.JPanel heyTile;
     private javax.swing.JPanel homeTab;
     private javax.swing.JLabel jLabel1;
@@ -1201,15 +1010,8 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         
         fields.put(TaskTitle1.getName(), TaskTitle1);
         fields.put(TaskSched1.getName(), TaskSched1);
-        fields.put(TaskDuration1.getName(), TaskDuration1);
-        fields.put(AccomplishedYesNo1.getName(), AccomplishedYesNo1);
         fields.put(Description1.getName(),Description1);
-        
-        fields.put(TaskTitle2.getName(), TaskTitle2);
-        fields.put(TaskSched2.getName(), TaskSched2);
-        fields.put(TaskDuration2.getName(), TaskDuration2);
-        fields.put(AccomplishedYesNo2.getName(), AccomplishedYesNo2);
-        fields.put(Description2.getName(),Description2);
+
         fields.put(DateOnTile.getName(), DateOnTile);
         
         fields.put(TaskList1.getName(), TaskList1);
@@ -1222,6 +1024,10 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         fields.put(Upcoming1Sched.getName(), Upcoming1Sched);
         fields.put(Upcoming2Sched.getName(), Upcoming2Sched);
         fields.put(Upcoming3Sched.getName(), Upcoming3Sched);
+        
+        fields.put(Upcoming1Accent.getName(), Upcoming1Accent);
+        fields.put(Upcoming2Accent.getName(), Upcoming2Accent);
+        fields.put(Upcoming3Accent.getName(), Upcoming3Accent);
         
         fields.put(TodayIsWhat.getName(), TodayIsWhat);
         fields.put(TaskingLevel.getName(), TaskingLevel);    

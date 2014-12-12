@@ -445,8 +445,8 @@
     </Component>
     <Component class="javax.swing.JSpinner" name="StartHour">
       <Properties>
-        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-          <SpinnerModel initial="0" maximum="23" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.SpinnerNumberModel(0, 0, 12, 1)" type="code"/>
         </Property>
         <Property name="name" type="java.lang.String" value="StartHour" noResource="true"/>
       </Properties>
@@ -571,8 +571,8 @@
     </Component>
     <Component class="javax.swing.JSpinner" name="EndHour">
       <Properties>
-        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-          <SpinnerModel initial="0" maximum="23" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.SpinnerNumberModel(0, 0, 12, 1)" type="code"/>
         </Property>
         <Property name="name" type="java.lang.String" value="EndHour" noResource="true"/>
       </Properties>

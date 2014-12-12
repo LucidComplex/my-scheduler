@@ -3,7 +3,9 @@ package main;
 
 import exceptions.CommandNotFoundException;
 import java.io.IOException;
+import java.util.Calendar;
 import javax.swing.JFrame;
+import manager.GameElement;
 import manager.NoteManager;
 import org.json.simple.parser.ParseException;
 import ui.MainWindow;
@@ -21,6 +23,7 @@ import ui.MainWindow;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException, InstantiationException, IllegalAccessException, java.text.ParseException, CommandNotFoundException {;
         NoteManager.initManager("notes.json");
+        GameElement.load();
         JFrame main = new MainWindow();
         main.setVisible(true);
     }

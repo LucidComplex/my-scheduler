@@ -38,7 +38,6 @@ public class AddNoteCommand extends Command {
         Note note = null;
         JTextComponent taskTitle = (JTextComponent) fields.get("TaskTitle");
         JTextComponent descriptionBox = (JTextComponent) fields.get("DescriptionBox");
-        Date startDate = getStartDate(fields);
         
         try {
             note = (Note) JSONModelFactory.create(Note.class);
@@ -134,7 +133,7 @@ public class AddNoteCommand extends Command {
         int[] times = new int[6];
         
         times[0] = (int) ((JSpinner) fields.get("EndDay")).getValue();
-        times[1] = parseMonth((String) ((JSpinner) fields.get("StartMonth")).getValue());
+        times[1] = parseMonth((String) ((JSpinner) fields.get("EndMonth")).getValue());
         times[2] = (int) ((JSpinner) fields.get("EndYear")).getValue();
         times[3] = (int) ((JSpinner) fields.get("EndHour")).getValue();
         times[4] = (int) ((JSpinner) fields.get("EndMinutes")).getValue();

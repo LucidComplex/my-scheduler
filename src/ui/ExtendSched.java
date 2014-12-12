@@ -6,20 +6,29 @@
 package ui;
 
 import base.UI;
+import commands.ExtendCommand;
+import exceptions.CommandNotFoundException;
+import factory.CommandFactory;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import manager.Executor;
+import model.Note;
 
 /**
  *
  * @author MarkLester
  */
 public class ExtendSched extends javax.swing.JFrame implements UI {
-
+    private Note note;
     /**
      * Creates new form ExtendSched
      */
-    public ExtendSched() {
+    public ExtendSched(Note n) {
         initComponents();
+        note = n;
+        Executor.put(ExtendCommand.class, CommandFactory.createExtendCommand(this));
     }
 
     /**
@@ -42,10 +51,12 @@ public class ExtendSched extends javax.swing.JFrame implements UI {
         NI3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setName("Form"); // NOI18N
 
         OKButton.setBackground(new java.awt.Color(0, 102, 51));
         OKButton.setForeground(new java.awt.Color(204, 255, 204));
         OKButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        OKButton.setName("OKButton"); // NOI18N
         OKButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 OKButtonMouseClicked(evt);
@@ -61,6 +72,7 @@ public class ExtendSched extends javax.swing.JFrame implements UI {
         NI12.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         NI12.setForeground(new java.awt.Color(255, 255, 255));
         NI12.setText("OK");
+        NI12.setName("NI12"); // NOI18N
         NI12.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 NI12FocusGained(evt);
@@ -83,15 +95,28 @@ public class ExtendSched extends javax.swing.JFrame implements UI {
 
         NI4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         NI4.setText("Extend task by :");
+        NI4.setName("NI4"); // NOI18N
+
+        DaysExtend.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        DaysExtend.setName("DaysExtend"); // NOI18N
+
+        HoursExtend.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        HoursExtend.setName("HoursExtend"); // NOI18N
 
         NI1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI1.setText("DAYS");
+        NI1.setName("NI1"); // NOI18N
 
         NI2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI2.setText("HOURS");
+        NI2.setName("NI2"); // NOI18N
+
+        MinExtend.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        MinExtend.setName("MinExtend"); // NOI18N
 
         NI3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         NI3.setText("MINS");
+        NI3.setName("NI3"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,7 +172,12 @@ public class ExtendSched extends javax.swing.JFrame implements UI {
     }//GEN-LAST:event_NI12FocusGained
 
     private void OKButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OKButtonMouseClicked
-
+        try {
+            Executor.execute(ExtendCommand.class);
+        } catch (CommandNotFoundException ex) {
+            Logger.getLogger(ExtendSched.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
     }//GEN-LAST:event_OKButtonMouseClicked
 
     private void OKButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OKButtonMouseEntered
@@ -176,6 +206,7 @@ public class ExtendSched extends javax.swing.JFrame implements UI {
         fields.put(DaysExtend.getName(), DaysExtend);
         fields.put(HoursExtend.getName(), HoursExtend);
         fields.put(MinExtend.getName(), MinExtend);
+        fields.put("note", note);
         return fields;
     }
 }
