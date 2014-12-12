@@ -8,6 +8,7 @@ package factory;
 import base.Command;
 import base.UI;
 import commands.*;
+import ui.ExtendSched;
 import ui.MainWindow;
 
 /**
@@ -39,5 +40,9 @@ public abstract class CommandFactory {
 
     public static Command createDeleteCommand(UI ui) {
         return new DeleteCommand(ui);
+    }
+
+    public static Command createExtendCommand(UI ui) {
+        return new ExtendCommand(ui);
     }
 }

@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import manager.Executor;
+import manager.NoteManager;
 
 /**
  *
@@ -25,7 +26,7 @@ import manager.Executor;
  */
 public class MainWindow extends javax.swing.JFrame implements UI {
     private JFrame add_window;
-    private JFrame ExtendWindow;
+    private JFrame ExtendWarning;
     private JFrame xp;    
 
     /**
@@ -38,7 +39,6 @@ public class MainWindow extends javax.swing.JFrame implements UI {
         Executor.put(DeleteCommand.class, CommandFactory.createDeleteCommand(this));
         add_window = new Add_window();
         Executor.put(AccomplishCommand.class, CommandFactory.createAccomplishCommand(this));
-        ExtendWindow = new ExtendWarning();
         xp = new EarnXP();
     }
 
@@ -893,7 +893,10 @@ public class MainWindow extends javax.swing.JFrame implements UI {
     }//GEN-LAST:event_AccomplishButton1MouseClicked
 
     private void ExtendButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExtendButton1MouseClicked
-        ExtendWindow.setVisible(true);
+        if(TaskList1.isSelectionEmpty())
+            return;
+        ExtendWarning = new ExtendWarning(NoteManager.getNoteByIndex(TaskList1.getSelectedIndex()));
+        ExtendWarning.setVisible(true);
     }//GEN-LAST:event_ExtendButton1MouseClicked
 
     private void Upcoming_See_All_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Upcoming_See_All_ButtonMouseExited
